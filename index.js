@@ -86,10 +86,7 @@ else if(factCategory == 'thanks' || factCategory == 'ok thanks' || factCategory 
       var res = 'success';
   });
   speech='Good bye!';
-  return res.json({
-    speech: speech,
-    displayText: speech,
-    source: "webhook-echo-sample"});
+
 }
   
   return res.json({
