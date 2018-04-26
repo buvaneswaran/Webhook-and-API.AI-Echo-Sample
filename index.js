@@ -27,20 +27,20 @@ restService.post("/echo", function(req, res) {
   if (maxTemp != '' || minTemp != '')
   {
       //this.emit(':ask', 'Yes indeed. Todays temperature reached a record high of 92 degrees outdoors, The temperature in this room is 78 degrees. Would you like me to adjust the airconditioning?');
-      assistant.ask('Yes indeed. Todays temperature reached a record high of ' + tempMax + ' degrees outdoors, The temperature in this room is ' + tempCurr + ' degrees. Would you like me to adjust the airconditioning?');
+      speech='Yes indeed. Todays temperature reached a record high of ' + tempMax + ' degrees outdoors, The temperature in this room is ' + tempCurr + ' degrees. Would you like me to adjust the airconditioning?';
   }
   else {
-      assistant.ask('Yes indeed. Todays temperature reached a record high of 62.6 degrees outdoors, The temperature in this room is 59.59 degrees. Would you like me to adjust the airconditioning?');
+    speech='Yes indeed. Todays temperature reached a record high of 62.6 degrees outdoors, The temperature in this room is 59.59 degrees. Would you like me to adjust the airconditioning?';
   }
-  return;
+  
 }
 else if (factCategory == 'hot weather' || factCategory == 'hot afternoon' || factCategory == 'hard weather' || factCategory == 'hard afternoon')
 {
   //assistant.ask('Today we got a hot weather of ' + tempCurr + ' degrees, Do you want switch on the aircon?');
   //return;
 
-  assistant.ask('Today was indeed a hot day.It reached a maximum temperature of ' + tempMax + ' degrees and now the temperature is ' + tempCurr + ' degrees, Would you like to switch on the aircon?');
-  return;
+  speech='Today was indeed a hot day.It reached a maximum temperature of ' + tempMax + ' degrees and now the temperature is ' + tempCurr + ' degrees, Would you like to switch on the aircon?';
+ 
 }
 else if (factCategory == 'aircon'
   || factCategory == 'swicth on the'
