@@ -15,7 +15,11 @@ restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
 
-  var factCategory = req.body.result.parameters.echoText;
+  var factCategory =   req.body.result &&
+  req.body.result.parameters &&
+  req.body.result.parameters.echoText
+    ? req.body.result.parameters.echoText
+    : "Seems like some problem. Speak again.";
 
   var speech ="Please repeat"
 
