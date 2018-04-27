@@ -47,9 +47,10 @@ restService.post("/gartner", function(req, res) {
         
         else if (guessNum == 'Can you email the report to me' || guessNum == 'Please report to me' || guessNum == 'please report to me' || guessNum == 'Sounds interesting Can you email the report to me' 
             || guessNum == 'could you please send an email report to me' || guessNum == 'can you please send an email report to me' || guessNum == 'send me the email report'
-            || guessNum == 'sounds interesting can you email the report to me')
-        
+            || guessNum == 'sounds interesting can you email the report to me'){
+            request('http://resulticks.biz:81/Home/SendReport?id=gg', { json: true }, (err, res, body) => {});
             speech = 'Sure, report has been emailed.';
+          }
            
         else if (guessNum == 'Great, can you also schedule a meeting with Adam Sarner or Andrew Frank next week' || guessNum == 'great can you also schedule a meeting with Adam Sarner or Andrew Frank next week'
              || guessNum == 'great can you also schedule a meeting with Adam sarner or Andrew frank next week') 
@@ -61,8 +62,10 @@ restService.post("/gartner", function(req, res) {
             || guessNum == "OK request a meeting with Andrew Frank for Wednesday 10 in the morning please" || guessNum == "OK request a meeting with Andrew Frank for Wednesday ten AM please" || guessNum == 'OK schedule a meeting with Andrew frank'
             || guessNum == "OK request a meeting with Andrew Frank for Wednesday ten am please" || guessNum == 'OK schedule it with Andrew Frank for wednesday please' || guessNum == 'OK schedule it with Andrew Frank for Wednesday please' || guessNum == "OK schedule a meeting with Andrew Frank for Wednesday 10 AM please" || guessNum == "OK schedule a meeting with Andrew Frank for Wednesday 10 am please"
             || guessNum == "OK schedule a meeting with Andrew Frank for wednesday 10 am please" || guessNum == 'okay schedule a meeting with Andrew Frank' || guessNum == 'schedule a meeting with Andrew Frank')
-
+        {
+            request('http://resulticks.biz:81/Home/SendInvite?id=gg', { json: true }, (err, res, body) => {});
             speech ='Meeting request has been sent.';
+           }
         else if(guessNum == 'thanks' || guessNum == 'thank you')
           speech ='Good bye';
         
