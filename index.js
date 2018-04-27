@@ -14,10 +14,7 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
-
-  this.getWeather();
-
-           
+       
   var tempCurr = '63';
   var tempMax = '65';
 
@@ -255,16 +252,4 @@ restService.post("/slack-test", function(req, res) {
 restService.listen(process.env.PORT || 8000, function() {
   console.log("Server up and listening");
 });
-
-
-getwather(function(){
-  const endpoint = 'http://resulticks.biz:81/Home/Register?id=125gh';
-  this.http
-      .get(endpoint)//, {search: searchParams})
-      .map(res => res.json().main)
-      .subscribe(res => {
-        this.weather = data;
-       });
-
-}); 
 
