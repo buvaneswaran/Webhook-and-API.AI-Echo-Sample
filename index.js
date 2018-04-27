@@ -32,7 +32,7 @@ restService.post("/gartner", function(req, res) {
   || guessNum == 'may I know  who is covering omnichannel marketing at Gartner today morning' || guessNum == 'may I know  who is covering omnichannel marketing at Gartner this morning'
   || guessNum == 'can you tell me who is covering multichannel marketing at Gartner' || guessNum == 'can you tell me who is covering multichannel marketing at Gartner')
   {
-          speech = 'OK. Multichannel marketing is being covered by Adam Sarner and Andrew Frank.';
+          speech = 'OK. Multichannel marketing is being covered by Michael Lehmann and Max Russell.';
   }
         
         else if (guessNum == 'OK, is there any recent report from them on Multichannel marketing?' || guessNum == 'OK is there any recent report from them on Multichannel marketing'
@@ -60,7 +60,7 @@ restService.post("/gartner", function(req, res) {
 			 || guessNum == 'great can you also schedule a meeting with Michael or Russell next week' || guessNum == 'great can you also schedule a meeting with michael or russell next week' 
 			 || guessNum == 'great schedule a meeting with russell next week') {
           
-            speech = 'Ok, I have matched your schedules. Best time slots available are next Wednesday 10am or next Friday 4pm with Andrew Frank. Adam Sarner is not available week after next. Do you want to book an appointment?';
+            speech = 'Ok, I have matched your schedules. Best time slots available are next Wednesday 10am or next Friday 4pm with Max Russell. Michael Lehman is not available week after next. Do you want to book an appointment?';
        }
             else if (guessNum == "OK request a meeting" || guessNum == "request a meeting" || guessNum == "request a meeting with Max Russell" || guessNum == "OK request a meeting with Max Russell" || guessNum == "OK request a meeting with Max Russell for Wednesday 10 AM please" || guessNum == "OK request a meeting with Max Russell for wednesday at ten in the morning"
             || guessNum == "OK request a meeting with Max Russell for Wednesday at ten in the morning" || guessNum == "OK request a meeting with Max Russell for Wednesday morning 10 o'clock please" || guessNum == "OK request a meeting with Max Russell for wednesday please" || guessNum == "OK request a meeting with Max Russell for Wednesday 10 am please"
