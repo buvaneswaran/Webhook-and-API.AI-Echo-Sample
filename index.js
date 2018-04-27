@@ -27,13 +27,14 @@ restService.post("/gartner", function(req, res) {
 
   var guessNum=speech;
 
-      if ( guessNum == 'can you tell me who is covering multi channel marketing at gartner' || guessNum == 'Can you tell me who is covering multichannel marketing at gartner' || guessNum == 'can you tell me who is covering multichannel marketing at gartner' || guessNum == 'can you tell me who is covering multichannel marketing at gartner'
-            || guessNum == 'tell me who is covering multichannel marketing at gartner' || guessNum == 'tell me who is covering multichannel marketing at gartner' || guessNum == 'tell me who is covering omnichannel marketing at Gartner'
-            || guessNum == 'can you tell me who is covering omnichannel marketing at gartner' || guessNum == 'may I know  who is covering omnichannel marketing at gartner' || guessNum == 'may I know  who is covering omnichannel marketing at gartner today'
+      if ( guessNum == 'can you tell me who is covering multi channel marketing at gartner' || guessNum == 'can you tell me who is covering multichannel marketing at gartner' || guessNum == 'can you tell me who is covering multichannel marketing at gartner'
+            || guessNum == 'tell me who is covering multichannel marketing at gartner'  || guessNum == 'tell me who is covering omnichannel marketing at Gartner'
+            || guessNum == 'can you tell me who is covering omnichannel marketing at gartner' || guessNum == 'may i know  who is covering omnichannel marketing at gartner' || guessNum == 'may I know  who is covering omnichannel marketing at gartner today'
             || guessNum == 'may I know  who is covering omnichannel marketing at gartner today morning' || guessNum == 'may I know  who is covering omnichannel marketing at gartner this morning'
             || guessNum == 'can you tell me who is covering multichannel marketing at gartner' || guessNum == 'can you tell me who`s covering multichannel marketing at gartner')
-        
+        {
           speech = 'OK. Multichannel marketing is being covered by Adam Sarner and Andrew Frank.';
+        }
         
         else if (guessNum == 'ok, is there any recent report from them on multichannel marketing?' || guessNum == 'ok is there any recent report from them on multichannel marketing'
             || guessNum == 'ok is there any recent report from them on multichannel marketing' || guessNum == 'is there any recent report from them on multichannel marketing'
