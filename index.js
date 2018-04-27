@@ -26,11 +26,11 @@ restService.post("/gartner", function(req, res) {
   var speech =guessNum.toLowerCase();
 
 
-  if (guessNum == 'Can you tell me who�s covering Multichannel Marketing at Gartner' || guessNum == 'can you tell me who�s covering multichannel marketing at Gartner' || guessNum == 'can you tell me who is covering multichannel marketing at Gartner'
+  if (guessNum == 'Can you tell me who is covering Multichannel Marketing at Gartner' || guessNum == 'can you tell me who is covering multichannel marketing at Gartner' || guessNum == 'can you tell me who is covering multichannel marketing at Gartner'
   || guessNum == 'tell me who is covering multichannel marketing at Gartner' || guessNum == 'tell me who is covering multichannel marketing at Gartner' || guessNum == 'tell me who is covering omnichannel marketing at Gartner'
   || guessNum == 'can you tell me who is covering omnichannel marketing at Gartner' || guessNum == 'may I know  who is covering omnichannel marketing at Gartner' || guessNum == 'may I know  who is covering omnichannel marketing at Gartner today'
   || guessNum == 'may I know  who is covering omnichannel marketing at Gartner today morning' || guessNum == 'may I know  who is covering omnichannel marketing at Gartner this morning'
-  || guessNum == 'can you tell me who�s covering multichannel marketing at Gartner' || guessNum == 'can you tell me who`s covering multichannel marketing at Gartner')//can you tell me who�s covering multichannel marketing at Gartner
+  || guessNum == 'can you tell me who is covering multichannel marketing at Gartner' || guessNum == 'can you tell me who is covering multichannel marketing at Gartner')
   {
           speech = 'OK. Multichannel marketing is being covered by Adam Sarner and Andrew Frank.';
   }
