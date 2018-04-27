@@ -33,7 +33,7 @@ restService.post("/gartner", function(req, res) {
             || guessNum == 'may I know  who is covering omnichannel marketing at gartner today morning' || guessNum == 'may I know  who is covering omnichannel marketing at gartner this morning'
             || guessNum == 'can you tell me who is covering multichannel marketing at gartner' || guessNum == 'can you tell me who`s covering multichannel marketing at gartner')
         {
-          speech = 'OK. Multichannel marketing is being covered by Adam Sarner and Andrew Frank.';
+          speech = 'ok. multichannel marketing is being covered by adam sarner and andrew frank';
         }
         
         else if (guessNum == 'ok, is there any recent report from them on multichannel marketing?' || guessNum == 'ok is there any recent report from them on multichannel marketing'
