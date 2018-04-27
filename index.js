@@ -16,7 +16,7 @@ restService.use(
 restService.use(bodyParser.json());
 
 
-
+restService.post("/echo", function(req, res) {
 
 
 
@@ -71,7 +71,7 @@ restService.use(bodyParser.json());
     }
     else if(factCategory == 'thanks' || factCategory == 'ok thanks' || factCategory == 'quit' || factCategory == 'thank you')
     {
-      restService.post("/echo", function(req, res) {
+      
 
         https.get('https://googlesample.herokuapp.com/', (resp) => {
         let data = '';
