@@ -26,27 +26,21 @@ restService.post("/schedule", function(req, res) {
   var speech =guessNum.toLowerCase();
 
 
-  if (guessNum == 'what does my schedule look like tonight' || guessNum == 'schedule tonight' || guessNum == 'how was my schedule tonight')
+        if (guessNum == 'welcome')
         {
           speech = 'you have a free schedule this evening.';
         }
-        else if (guessNum == 'excellent I would like to take my wife to dinner please suggest a good restaurant' || guessNum == 'ok I would like to take my wife to dinner please suggest a good restaurant'
-            || guessNum == 'excellent I would like to take my wife to dinner tonight please suggest a restaurant' || guessNum == 'excellent I would like to take my wife tonight to dinner please suggest a restaurant'
-            || guessNum == 'excellent I would like to take my wife tonight to dinner please suggest a good restaurant' || guessNum == 'OK I would like to take my wife to dinner please suggest a good restaurant'
-            || guessNum == 'excellent i would like to take my wife to dinner please suggest a good restaurant' || guessNum == 'ok i would like to take my wife to dinner please suggest a good restaurant'
-            || guessNum == 'excellent i would like to take my wife to dinner tonight please suggest a restaurant' || guessNum == 'excellent i would like to take my wife tonight to dinner please suggest a restaurant'
-            || guessNum == 'excellent i would like to take my wife tonight to dinner please suggest a good restaurant' || guessNum == 'please suggest a good restaurant')
+        else if (guessNum == 'offer')
         {
             speech = 'OK. Your Infinia creditcard entitles you to a 1+1 offer at Vision Kitchen in Phoenix Mall. Shall I connect you to the concierge to make a booking? ';
         }
 
-        else if (guessNum == 'yes order it please' || guessNum == 'yes, please' || guessNum == 'yes please' || guessNum == 'ok proceed' || guessNum == "please order it" || guessNum == "order it please"
-        || guessNum == 'sure proceed' || guessNum == 'ok sure' || guessNum == 'ok sure proceed' || guessNum == 'okay proceed' || guessNum == 'okay') {
+        else if (guessNum == 'connect') {
           speech ='Ok, connecting now.';
           
           request('http://resulticks.biz:81/Home/RegisterBank?id=hare_ram_end', { json: true }, (err, res, body) => {});
         }
-        else if(guessNum == 'thanks' || guessNum == 'thank you')
+        else if(guessNum == 'thanks')
           speech ='Good bye';
           else
           speech = "I cant understand that, please repeat";
