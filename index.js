@@ -1,3 +1,5 @@
+import { callbackify } from "util";
+
 "use strict";
 
 const express = require("express");
@@ -15,7 +17,7 @@ restService.use(bodyParser.json());
 
 const url = 'http://resulticks.biz:81/Home/Register?id=125gh';
 
-request({ url: url, json: true }, function (error, response, body) {
+pushdata({ url: url, json: true }, function (error, response, body) {
   var res = 'success';
 });
 
@@ -24,7 +26,7 @@ request({ url: url, json: true }, function (error, response, body) {
 
 restService.post("/echo", function(req, res) {
 
-
+restService.call.pushdata();
 
 
   var tempCurr = '63';
