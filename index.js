@@ -15,7 +15,9 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-https.get('https://googlesample.herokuapp.com/', (resp) => {
+restService.post("/echo", function(req, res) {
+
+  https.get('https://googlesample.herokuapp.com/', (resp) => {
   let data = '';
  
   // A chunk of data has been recieved.
@@ -33,10 +35,6 @@ https.get('https://googlesample.herokuapp.com/', (resp) => {
 });
 
 
-
-restService.post("/echo", function(req, res) {
-
-  
 
 
 
