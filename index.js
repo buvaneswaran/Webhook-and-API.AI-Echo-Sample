@@ -15,7 +15,9 @@ restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
 
-  restService.call(this.getWeather());
+  this.getWeather();
+
+           
   var tempCurr = '63';
   var tempMax = '65';
 
