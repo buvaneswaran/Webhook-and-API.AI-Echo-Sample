@@ -33,14 +33,14 @@ var tempMax = '65';
   || factCategory == 'it was a hard day' || factCategory == 'it was so hard today' || factCategory == 'it was hard today' || factCategory == 'it was a hard day today'
   || factCategory == 'hard day' || factCategory == 'hard today' || factCategory == 'hard' || factCategory == 'today was hard')
 {
-  if (maxTemp != '' || minTemp != '')
-  {
+//  if (maxTemp != '' || minTemp != '')
+  //{
       //this.emit(':ask', 'Yes indeed. Todays temperature reached a record high of 92 degrees outdoors, The temperature in this room is 78 degrees. Would you like me to adjust the airconditioning?');
-      speech='Yes indeed. Todays temperature reached a record high of ' + tempMax + ' degrees outdoors, The temperature in this room is ' + tempCurr + ' degrees. Would you like me to adjust the airconditioning?';
-  }
-  else {
+    //  speech='Yes indeed. Todays temperature reached a record high of ' + tempMax + ' degrees outdoors, The temperature in this room is ' + tempCurr + ' degrees. Would you like me to adjust the airconditioning?';
+  //}
+  //else {
     speech='Yes indeed. Todays temperature reached a record high of 62.6 degrees outdoors, The temperature in this room is 59.59 degrees. Would you like me to adjust the airconditioning?';
-  }
+  //}
   
 }
 else if (factCategory == 'hot weather' || factCategory == 'hot afternoon' || factCategory == 'hard weather' || factCategory == 'hard afternoon')
