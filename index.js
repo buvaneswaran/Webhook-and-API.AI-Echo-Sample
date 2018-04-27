@@ -33,24 +33,10 @@ var tempMax = '65';
   || factCategory == 'it was a hard day' || factCategory == 'it was so hard today' || factCategory == 'it was hard today' || factCategory == 'it was a hard day today'
   || factCategory == 'hard day' || factCategory == 'hard today' || factCategory == 'hard' || factCategory == 'today was hard')
 {
-//  if (maxTemp != '' || minTemp != '')
-  //{
-      //this.emit(':ask', 'Yes indeed. Todays temperature reached a record high of 92 degrees outdoors, The temperature in this room is 78 degrees. Would you like me to adjust the airconditioning?');
-    //  speech='Yes indeed. Todays temperature reached a record high of ' + tempMax + ' degrees outdoors, The temperature in this room is ' + tempCurr + ' degrees. Would you like me to adjust the airconditioning?';
-  //}
-  //else {
-    speech='Yes indeed. Todays temperature reached a record high of 62.6 degrees outdoors, The temperature in this room is 59.59 degrees. Would you like me to adjust the airconditioning?';
-  //}
-  
-}
-else if (factCategory == 'hot weather' || factCategory == 'hot afternoon' || factCategory == 'hard weather' || factCategory == 'hard afternoon')
-{
-  //assistant.ask('Today we got a hot weather of ' + tempCurr + ' degrees, Do you want switch on the aircon?');
-  //return;
 
-  speech='Today was indeed a hot day.It reached a maximum temperature of ' + tempMax + ' degrees and now the temperature is ' + tempCurr + ' degrees, Would you like to switch on the aircon?';
- 
-}
+    speech='Yes indeed. Todays temperature reached a record high of 62.6 degrees outdoors, The temperature in this room is 59.59 degrees. Would you like me to adjust the airconditioning?';
+
+  }
 else if (factCategory == 'aircon'
   || factCategory == 'swicth on the'
   || factCategory == 'switch on the aircon' || factCategory == 'turn on' || factCategory == 'switch it on please'
@@ -58,15 +44,9 @@ else if (factCategory == 'aircon'
   || factCategory == 'yes, switch it on' || factCategory == 'switch on'
   || factCategory == 'switch on the aircon')
 {
-  if (maxTemp != '' && parseInt(maxTemp) > 0)
-  {
-      var acTemp = parseInt(maxTemp) - 5;
-      speech='I have set the temperature to ' + acTemp.toString() + ' degree. Do you want to change that?';
-  }
-  else
-  {
+  
     speech='I have set the temperature to 72 degree. Do you want to change that?';
-  }
+  
  
 }
 else if (factCategory == 'no leave it' || factCategory == 'no let it be' || factCategory == 'no need' || factCategory == 'do not change it'
