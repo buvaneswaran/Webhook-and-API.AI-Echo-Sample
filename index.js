@@ -21,7 +21,7 @@ restService.post("/echo", function(req, res) {
   var tempCurr = '63';
   var tempMax = '65';
 
-  var factCategory =   req.body.result &&
+  var factCategory = req.body.result &&
   req.body.result.parameters &&
   req.body.result.parameters.echoText
     ? req.body.result.parameters.echoText
