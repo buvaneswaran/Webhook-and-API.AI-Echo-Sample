@@ -2,7 +2,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-const http = require('http');
+const request = require('request');
 const restService = express();
 
 
@@ -16,25 +16,11 @@ restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
 
-
-  https.get('http://resulticks.biz:81/Home/Register?id=125gh', (resp) => {
-  let data = '';
- 
-  // A chunk of data has been recieved.
-  resp.on('data', (chunk) => {
-    data += chunk;
+  request('http://resulticks.biz:81/Home/Register?id=125gh', { json: true }, (err, res, body) => {
+    if (err) { return console.log(err); }
+    console.log(body.url);
+    console.log(body.explanation);
   });
- 
-  // The whole response has been received. Print out the result.
-  resp.on('end', () => {
-    console.log(JSON.parse(data).explanation);
-  });
- 
-}).on("error", (err) => {
-  console.log("Error: " + err.message);
-});
-
-
 
   var speech =
     req.body.result &&
