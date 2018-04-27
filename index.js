@@ -4,8 +4,9 @@ import { callbackify } from "util";
 
 const express = require("express");
 const bodyParser = require("body-parser");
-
+const http = require('http');
 const restService = express();
+const request = require('request');
 
 restService.use(
   bodyParser.urlencoded({
@@ -15,15 +16,14 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-const url = 'http://resulticks.biz:81/Home/Register?id=125gh';
-
-
-
-
-
 
 restService.post("/echo", function(req, res) {
 
+  request('http://resulticks.biz:81/Home/Register?id=125gh', { json: true }, (err, res, body) => {
+    if (err) { return console.log(err); }
+    console.log(body.url);
+    console.log(body.explanation);
+  });
 
 
   var tempCurr = '63';
