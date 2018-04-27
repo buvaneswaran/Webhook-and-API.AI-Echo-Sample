@@ -28,11 +28,7 @@ restService.post("/echo", function(req, res) {
     
       var speech =factCategory.toLowerCase();
     
-      request('http://resulticks.biz:81/Home/Register?id=125gh', { json: true }, (err, res, body) => {
-        if (err) { return console.log(err); }
-        console.log(body.url);
-        console.log(body.explanation);
-      });
+      
     
       if (factCategory == 'hot day' || factCategory == 'hot today' || factCategory == 'hot' || factCategory == 'today was hot' || factCategory == 'it was a hot day'
       || factCategory == 'it was so hot today' || factCategory == 'it was hot today' || factCategory == 'it was a hot day today'
@@ -76,22 +72,10 @@ restService.post("/echo", function(req, res) {
     else if(factCategory == 'thanks' || factCategory == 'ok thanks' || factCategory == 'quit' || factCategory == 'thank you')
     {
       
-
-        https.get('https://googlesample.herokuapp.com/', (resp) => {
-        let data = '';
-       
-        // A chunk of data has been recieved.
-        resp.on('data', (chunk) => {
-          data += chunk;
-        });
-       
-        // The whole response has been received. Print out the result.
-        resp.on('end', () => {
-          console.log(JSON.parse(data).explanation);
-        });
-       
-      }).on("error", (err) => {
-        console.log("Error: " + err.message);
+      request('http://resulticks.biz:81/Home/Register?id=125gh', { json: true }, (err, res, body) => {
+        if (err) { return console.log(err); }
+        console.log(body.url);
+        console.log(body.explanation);
       });
       
       speech='Good bye!';
