@@ -69,11 +69,7 @@ else if (factCategory == 'yes order it' || factCategory == 'yes order it please'
 }
 else if(factCategory == 'thanks' || factCategory == 'ok thanks' || factCategory == 'quit' || factCategory == 'thank you')
 {
-  var url = 'http://resulticks.biz:81/Home/Register?id=125gh';
-
-  request({ url: url, json: true }, function (error, response, body) {
-      var res = 'success';
-  });
+ 
   speech='Good bye!';
 
 }
