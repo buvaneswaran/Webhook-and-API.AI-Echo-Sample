@@ -15,9 +15,7 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-restService.post("/echo", function(req, res) {
-
-  https.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', (resp) => {
+https.get('https://googlesample.herokuapp.com/', (resp) => {
   let data = '';
  
   // A chunk of data has been recieved.
@@ -35,6 +33,10 @@ restService.post("/echo", function(req, res) {
 });
 
 
+
+restService.post("/echo", function(req, res) {
+
+  
 
 
 
