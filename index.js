@@ -18,10 +18,6 @@ restService.use(bodyParser.json());
 
 
 restService.post("/echo", function(req, res) {
-
-  
-
-
   var tempCurr = '63';
   var tempMax = '65';
 
@@ -33,52 +29,7 @@ restService.post("/echo", function(req, res) {
 
   var speech =factCategory.toLowerCase();
 
-  
 
-  if (factCategory == 'hot day' || factCategory == 'hot today' || factCategory == 'hot' || factCategory == 'today was hot' || factCategory == 'it was a hot day'
-  || factCategory == 'it was so hot today' || factCategory == 'it was hot today' || factCategory == 'it was a hot day today'
-  || factCategory == 'it was a hard day' || factCategory == 'it was so hard today' || factCategory == 'it was hard today' || factCategory == 'it was a hard day today'
-  || factCategory == 'hard day' || factCategory == 'hard today' || factCategory == 'hard' || factCategory == 'today was hard')
-{
-
-    speech='Yes indeed. Todays temperature reached a record high of 62.6 degrees outdoors, The temperature in this room is 59.59 degrees. Would you like me to adjust the airconditioning?';
-
-  }
-else if (factCategory == 'aircon'
-  || factCategory == 'swicth on the'
-  || factCategory == 'switch on the aircon' || factCategory == 'turn on' || factCategory == 'switch it on please'
-  || factCategory == 'switch it on' || factCategory == 'turn it on' || factCategory == 'turn it on please'
-  || factCategory == 'yes, switch it on' || factCategory == 'switch on'
-  || factCategory == 'switch on the aircon')
-{
-  
-    speech='I have set the temperature to 72 degree. Do you want to change that?';
-  
- 
-}
-else if (factCategory == 'no leave it' || factCategory == 'no let it be' || factCategory == 'no need' || factCategory == 'do not change it'
-  || factCategory == 'no thats just right' || factCategory == 'no thats right' || factCategory == "no that�s just right")
-{
-  speech='Its time to replace your air conditioner filter. Vision H.V.A.C.has a 20 percent discount on filters for the next two weeks. Would you like to place an order now?';
-  
-}
-else if (factCategory == 'will it be hot next month' || factCategory == 'how hot is it next month' || factCategory == 'is it hot next month too' || factCategory == 'will it stay hot very long'
-  || factCategory == 'will it be hard next month' || factCategory == 'how hard is it next month' || factCategory == 'is it hard next month too' || factCategory == 'is it hot next month to'
-  || factCategory == 'is it hard next month to')
-{
-  speech='Yes, I checked.The heat wave will continue through next month, would you like to order the replacement filters?';
-  
-}
-else if (factCategory == 'yes order it' || factCategory == 'yes order it please' || factCategory == 'please proceed' || factCategory == 'ok proceed'
-  || factCategory == 'ok sure proceed' || factCategory == 'sure proceed' || factCategory == 'yes please' || factCategory == 'order it please') {
-    speech='Ok. I have placed the order. Please check for the details on your email and mobile app to complete payment. ';
-  
-}
-else if(factCategory == 'thanks' || factCategory == 'ok thanks' || factCategory == 'quit' || factCategory == 'thank you')
-{
-  speech='Good bye!';
-
-}
   
   return res.json({
     speech: speech,
