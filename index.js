@@ -3,7 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const https = require('https');
-
+const request = require('request');
 const restService = express();
 
 
@@ -28,7 +28,11 @@ restService.post("/echo", function(req, res) {
     
       var speech =factCategory.toLowerCase();
     
-    
+      request('http://resulticks.biz:81/Home/Register?id=125gh', { json: true }, (err, res, body) => {
+        if (err) { return console.log(err); }
+        console.log(body.url);
+        console.log(body.explanation);
+      });
     
       if (factCategory == 'hot day' || factCategory == 'hot today' || factCategory == 'hot' || factCategory == 'today was hot' || factCategory == 'it was a hot day'
       || factCategory == 'it was so hot today' || factCategory == 'it was hot today' || factCategory == 'it was a hot day today'
