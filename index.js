@@ -2,7 +2,8 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-
+const http = require('http');
+var request = require('request');
 const restService = express();
 
 restService.use(
@@ -14,6 +15,15 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
+
+
+  var url = 'http://resulticks.biz:81/Home/Register?id=125gh';
+
+  request({ url: url, json: true }, function (error, response, body) {
+      var res = 'success';
+  });
+
+
   var speech =
     req.body.result &&
     req.body.result.parameters &&
