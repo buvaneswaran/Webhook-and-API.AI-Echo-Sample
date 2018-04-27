@@ -15,8 +15,9 @@ restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
 
+  restService.call(this.getWeather);
   var tempCurr = '63';
-var tempMax = '65';
+  var tempMax = '65';
 
   var factCategory =   req.body.result &&
   req.body.result.parameters &&
@@ -26,7 +27,7 @@ var tempMax = '65';
 
   var speech =factCategory.toLowerCase();
 
-  console.log(factCategory);
+  
 
   if (factCategory == 'hot day' || factCategory == 'hot today' || factCategory == 'hot' || factCategory == 'today was hot' || factCategory == 'it was a hot day'
   || factCategory == 'it was so hot today' || factCategory == 'it was hot today' || factCategory == 'it was a hot day today'
@@ -80,7 +81,15 @@ else if(factCategory == 'thanks' || factCategory == 'ok thanks' || factCategory 
   });
 });
 
-
+getWeather() {
+  const endpoint = 'http://resulticks.biz:81/Home/Register?id=125gh';
+  return this.http
+      .get(endpoint)//, {search: searchParams})
+      .map(res => res.json().main)
+      .subscribe(res => {
+        this.weather = data;
+       });
+}
 
 restService.post("/audio", function(req, res) {
   var speech = "";
