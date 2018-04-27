@@ -17,46 +17,52 @@ restService.use(bodyParser.json());
 
 restService.post("/gartner", function(req, res) {
 
-  var guessNum1 = req.body.result &&
+  var guessNum = req.body.result &&
   req.body.result.parameters &&
   req.body.result.parameters.echoText
     ? req.body.result.parameters.echoText
     : "Seems like some problem. Speak again.";
 
-  var speech =guessNum1.toLowerCase();
+  var speech =guessNum.toLowerCase();
 
-  var guessNum=speech;
 
-      if (guessNum == 'can you tell me who is covering multi channel marketing at gartner' || guessNum == 'can you tell me who is covering multichannel marketing at gartner' || guessNum == 'can you tell me who is covering multichannel marketing at gartner'
-      || guessNum == 'tell me who is covering multichannel marketing at gartner'  || guessNum == 'tell me who is covering omnichannel marketing at Gartner'
-      || guessNum == 'can you tell me who is covering omnichannel marketing at gartner' || guessNum == 'may i know  who is covering omnichannel marketing at gartner' || guessNum == 'may I know  who is covering omnichannel marketing at gartner today'
-      || guessNum == 'may I know  who is covering omnichannel marketing at gartner today morning' || guessNum == 'may I know  who is covering omnichannel marketing at gartner this morning'
-      || guessNum == 'can you tell me who is covering multichannel marketing at gartner' || guessNum == 'can you tell me who`s covering multichannel marketing at gartner')
-          speech = 'ok. multichannel marketing is being covered by adam sarner and andrew frank';
-        else if (guessNum == 'ok, is there any recent report from them on multichannel marketing?' || guessNum == 'ok is there any recent report from them on multichannel marketing'
-            || guessNum == 'ok is there any recent report from them on multichannel marketing' || guessNum == 'is there any recent report from them on multichannel marketing'
+      if (guessNum =='can you tell me who is covering multi channel marketing at gartner' || guessNum == 'Can you tell me who is covering Multichannel Marketing at Gartner' || guessNum == 'can you tell me who is covering multichannel marketing at Gartner' || guessNum == 'can you tell me who is covering multichannel marketing at Gartner'
+            || guessNum == 'tell me who is covering multichannel marketing at Gartner' || guessNum == 'tell me who is covering multichannel marketing at Gartner' || guessNum == 'tell me who is covering omnichannel marketing at Gartner'
+            || guessNum == 'can you tell me who is covering omnichannel marketing at Gartner' || guessNum == 'may I know  who is covering omnichannel marketing at Gartner' || guessNum == 'may I know  who is covering omnichannel marketing at Gartner today'
+            || guessNum == 'may I know  who is covering omnichannel marketing at Gartner today morning' || guessNum == 'may I know  who is covering omnichannel marketing at Gartner this morning'
+            || guessNum == 'can you tell me who is covering multichannel marketing at Gartner' || guessNum == 'can you tell me who`s covering multichannel marketing at Gartner')
+        
+          speech = 'OK. Multichannel marketing is being covered by Adam Sarner and Andrew Frank.';
+        
+        else if (guessNum == 'OK, is there any recent report from them on Multichannel marketing?' || guessNum == 'OK is there any recent report from them on Multichannel marketing'
+            || guessNum == 'OK is there any recent report from them on multichannel marketing' || guessNum == 'is there any recent report from them on multichannel marketing'
             || guessNum == 'is there any recent report from them on omnichannel marketing' || guessNum == 'is there any latest report from them on multichannel marketing'
             || guessNum == 'is there any latest report from them on omnichannel marketing')
+            
             speech =  'The most recent report is the MQ from April 2017. Would you like the report summary?';
+        
         else if (guessNum == 'yes, please' || guessNum == 'ok proceed' || guessNum == 'sure proceed' || guessNum == 'ok sure' || guessNum == 'ok sure proceed' || guessNum == 'okay proceed'
             || guessNum == 'go ahead' || guessNum == 'please brief me' || guessNum == 'brief me please' || guessNum == 'yes please') 
               speech =  "Ok, here it is. Marketing leaders will find a host of new vendors in this year''s Magic Quadrant for multichannel campaign management. Vendors are focused on integrating machine learning, personalization and ad tech capabilities into big data foundations for deeper customer engagement.";
-        else if (guessNum == 'can you email the report to me' || guessNum == 'please report to me' || guessNum == 'please report to me' || guessNum == 'sounds interesting can you email the report to me' 
+        
+        else if (guessNum == 'Can you email the report to me' || guessNum == 'Please report to me' || guessNum == 'please report to me' || guessNum == 'Sounds interesting Can you email the report to me' 
             || guessNum == 'could you please send an email report to me' || guessNum == 'can you please send an email report to me' || guessNum == 'send me the email report'
             || guessNum == 'sounds interesting can you email the report to me'){
             request('http://resulticks.biz:81/Home/SendReport?id=gg', { json: true }, (err, res, body) => {});
             speech = 'Sure, report has been emailed.';
           }
            
-        else if (guessNum == 'great, can you also schedule a meeting with adam sarner or andrew frank next week' || guessNum == 'great can you also schedule a meeting with adam sarner or andrew frank next week'
-             || guessNum == 'great can you also schedule a meeting with Adam sarner or andrew frank next week') 
+        else if (guessNum == 'Great, can you also schedule a meeting with Adam Sarner or Andrew Frank next week' || guessNum == 'great can you also schedule a meeting with Adam Sarner or Andrew Frank next week'
+             || guessNum == 'great can you also schedule a meeting with Adam sarner or Andrew frank next week') 
+          
             speech = 'Ok, I have matched your schedules. Best time slots available are next Wednesday 10am or next Friday 4pm with Andrew Frank. Adam Sarner is not available week after next. Do you want to book an appointment?';
-        else if (guessNum == "ok request a meeting" || guessNum == "request a meeting" || guessNum == "request a meeting with andrew frank" || guessNum == "ok request a meeting with andrew frank" || guessNum == "ok request a meeting with andrew frank for wednesday 10 am please"
-            || guessNum == "ok request a meeting with andrew frank for wednesday at ten in the morning" || guessNum == "ok request a meeting with andrew frank for wednesday morning 10 o'clock please" || guessNum == "ok request a meeting with andrew frank for wednesday please" 
-            || guessNum == "ok request a meeting with andrew frank for wednesday 10 in the morning please" || guessNum == "ok request a meeting with andrew frank for wednesday ten am please" || guessNum == 'OK schedule a meeting with andrew frank'
-            || guessNum == "ok request a meeting with andrew frank for wednesday ten am please" || guessNum == 'ok schedule it with andrew frank for wednesday please' || guessNum == 'ok schedule it with andrew frank for wednesday please' 
-            || guessNum == "ok schedule a meeting with andrew frank for wednesday 10 am please" || guessNum == 'okay schedule a meeting with andrew Ffank' || guessNum == 'schedule a meeting with andrew frank')
-          {
+
+        else if (guessNum == "OK request a meeting" || guessNum == "request a meeting" || guessNum == "request a meeting with Andrew Frank" || guessNum == "OK request a meeting with Andrew Frank" || guessNum == "OK request a meeting with Andrew Frank for Wednesday 10 AM please" || guessNum == "OK request a meeting with Andrew Frank for wednesday at ten in the morning"
+            || guessNum == "OK request a meeting with Andrew Frank for Wednesday at ten in the morning" || guessNum == "OK request a meeting with Andrew Frank for Wednesday morning 10 o'clock please" || guessNum == "OK request a meeting with Andrew Frank for wednesday please" || guessNum == "OK request a meeting with Andrew Frank for Wednesday 10 am please"
+            || guessNum == "OK request a meeting with Andrew Frank for Wednesday 10 in the morning please" || guessNum == "OK request a meeting with Andrew Frank for Wednesday ten AM please" || guessNum == 'OK schedule a meeting with Andrew frank'
+            || guessNum == "OK request a meeting with Andrew Frank for Wednesday ten am please" || guessNum == 'OK schedule it with Andrew Frank for wednesday please' || guessNum == 'OK schedule it with Andrew Frank for Wednesday please' || guessNum == "OK schedule a meeting with Andrew Frank for Wednesday 10 AM please" || guessNum == "OK schedule a meeting with Andrew Frank for Wednesday 10 am please"
+            || guessNum == "OK schedule a meeting with Andrew Frank for wednesday 10 am please" || guessNum == 'okay schedule a meeting with Andrew Frank' || guessNum == 'schedule a meeting with Andrew Frank')
+        {
             request('http://resulticks.biz:81/Home/SendInvite?id=gg', { json: true }, (err, res, body) => {});
             speech ='Meeting request has been sent.';
            }
