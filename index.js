@@ -17,15 +17,15 @@ restService.use(bodyParser.json());
 
 restService.post("/gartner", function(req, res) {
 
-  var guessNum = req.body.result &&
+  var guessNum1 = req.body.result &&
   req.body.result.parameters &&
   req.body.result.parameters.echoText
     ? req.body.result.parameters.echoText
     : "Seems like some problem. Speak again.";
 
-  var speech =guessNum.toLowerCase();
+  var speech =guessNum1.toLowerCase();
 
-  guessNum=guessNum.toLowerCase();
+  var guessNum=guessNum1.toLowerCase();
 
   if (guessNum == 'Can you tell me who�s covering Multichannel Marketing at Gartner' || guessNum == 'can you tell me who�s covering multichannel marketing at Gartner' || guessNum == 'can you tell me who is covering multichannel marketing at Gartner'
             || guessNum == 'tell me who is covering multichannel marketing at Gartner' || guessNum == 'tell me who is covering multichannel marketing at Gartner' || guessNum == 'tell me who is covering omnichannel marketing at Gartner'
