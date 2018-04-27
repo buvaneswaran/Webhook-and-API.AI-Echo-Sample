@@ -17,16 +17,13 @@ restService.use(bodyParser.json());
 
 const url = 'http://resulticks.biz:81/Home/Register?id=125gh';
 
-pushdata({ url: url, json: true }, function (error, response, body) {
-  var res = 'success';
-});
+
 
 
 
 
 restService.post("/echo", function(req, res) {
 
-restService.call.pushdata();
 
 
   var tempCurr = '63';
