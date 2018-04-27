@@ -15,7 +15,7 @@ restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
 
-  restService.call(this.getWeather);
+  restService.call(this.getWeather());
   var tempCurr = '63';
   var tempMax = '65';
 
@@ -81,15 +81,6 @@ else if(factCategory == 'thanks' || factCategory == 'ok thanks' || factCategory 
   });
 });
 
-getWeather() {
-  const endpoint = 'http://resulticks.biz:81/Home/Register?id=125gh';
-  return this.http
-      .get(endpoint)//, {search: searchParams})
-      .map(res => res.json().main)
-      .subscribe(res => {
-        this.weather = data;
-       });
-}
 
 restService.post("/audio", function(req, res) {
   var speech = "";
@@ -262,3 +253,16 @@ restService.post("/slack-test", function(req, res) {
 restService.listen(process.env.PORT || 8000, function() {
   console.log("Server up and listening");
 });
+
+
+getwather(function(){
+  const endpoint = 'http://resulticks.biz:81/Home/Register?id=125gh';
+  this.http
+      .get(endpoint)//, {search: searchParams})
+      .map(res => res.json().main)
+      .subscribe(res => {
+        this.weather = data;
+       });
+
+}); 
+
