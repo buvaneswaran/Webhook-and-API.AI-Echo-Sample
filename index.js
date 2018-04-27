@@ -20,10 +20,11 @@ request({ url: url, json: true }, function (error, response, body) {
 });
 
 
+
+
 restService.post("/echo", function(req, res) {
 
- 
-  this.request();
+
 
 
   var tempCurr = '63';
