@@ -90,11 +90,7 @@ restService.post("/gartner", function(req, res) {
         {
           speech ='Good bye';
         }
-        else
-        {
-          speech ='I cant understand that, please repeat';
-            
-        }
+        
 
 return res.json({
 speech: speech,
