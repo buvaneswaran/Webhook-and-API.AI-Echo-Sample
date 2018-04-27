@@ -25,7 +25,7 @@ restService.post("/gartner", function(req, res) {
 
   var speech =guessNum.toLowerCase();
 
-  
+  guessNum=guessNum.toLowerCase();
 
   if (guessNum == 'Can you tell me who�s covering Multichannel Marketing at Gartner' || guessNum == 'can you tell me who�s covering multichannel marketing at Gartner' || guessNum == 'can you tell me who is covering multichannel marketing at Gartner'
             || guessNum == 'tell me who is covering multichannel marketing at Gartner' || guessNum == 'tell me who is covering multichannel marketing at Gartner' || guessNum == 'tell me who is covering omnichannel marketing at Gartner'
