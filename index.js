@@ -15,186 +15,29 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-restService.post("/schedule", function(req, res) {
+restService.post("/schedule", function (req, res) {
 
   var guessNum = req.body.result &&
-  req.body.result.parameters &&
-  req.body.result.parameters.echoText
+    req.body.result.parameters &&
+    req.body.result.parameters.echoText
     ? req.body.result.parameters.echoText
     : "Seems like some problem. Speak again.";
 
-  var speech =guessNum.toLowerCase();
+  var speech = guessNum.toLowerCase();
 
-
-        if (guessNum == 'welcome')
-        {
-          speech = 'you have a free schedule this evening.';
-        }
-        else if (guessNum == 'offer')
-        {
-            speech = 'OK. Your Infinia creditcard entitles you to a 1+1 offer at Vision Kitchen in Phoenix Mall. Shall I connect you to the concierge to make a booking? ';
-        }
-
-        else if (guessNum == 'connect') {
-          speech ='Ok, connecting now.';
-          
-          request('http://resulticks.biz:81/Home/RegisterBank?id=hare_ram_end', { json: true }, (err, res, body) => {});
-        }
-        else if(guessNum == 'thanks')
-          speech ='Good bye';
-          else
-          speech = "I cant understand that, please repeat";
-        
-        
-
-return res.json({
-speech: speech,
-displayText: speech,
-source: "webhook-echo-sample"
-});
-});
-
-
-
-
-
-
-
-
-restService.post("/gartner", function(req, res) {
-
-  var guessNum = req.body.result &&
-  req.body.result.parameters &&
-  req.body.result.parameters.echoText
-    ? req.body.result.parameters.echoText
-    : "Seems like some problem. Speak again.";
-
-  var speech =guessNum.toLowerCase();
-
-
-  if (guessNum == 'Can you tell me who is covering Multichannel Marketing at Gartner' || guessNum == 'can you tell me who is covering multichannel marketing at Gartner' || guessNum == 'can you tell me who is covering multichannel marketing at Gartner'
-  || guessNum == 'tell me who is covering multichannel marketing at Gartner' || guessNum == 'tell me who is covering multichannel marketing at Gartner' || guessNum == 'tell me who is covering omnichannel marketing at Gartner'
-  || guessNum == 'can you tell me who is covering omnichannel marketing at Gartner' || guessNum == 'may I know  who is covering omnichannel marketing at Gartner' || guessNum == 'may I know  who is covering omnichannel marketing at Gartner today'
-  || guessNum == 'may I know  who is covering omnichannel marketing at Gartner today morning' || guessNum == 'may I know  who is covering omnichannel marketing at Gartner this morning'
-  || guessNum == 'can you tell me who is covering multichannel marketing at Gartner' || guessNum == 'can you tell me who is covering multichannel marketing at Gartner')
-  {
-          speech = 'OK. Multichannel marketing is being covered by Michael Lehmann and Max Russell.';
+  if (guessNum == 'welcome')
+    speech = 'you have a free schedule this evening.';
+  else if (guessNum == 'offer')
+    speech = 'OK. Your Infinia creditcard entitles you to a 1+1 offer at Vision Kitchen in Phoenix Mall. Shall I connect you to the concierge to make a booking? ';
+  else if (guessNum == 'connect') {
+    speech = 'Ok, connecting now.';
+    request('http://resulticks.biz:81/Home/RegisterBank?id=hare_ram_end', { json: true }, (err, res, body) => { });
   }
-        
-        else if (guessNum == 'OK, is there any recent report from them on Multichannel marketing?' || guessNum == 'OK is there any recent report from them on Multichannel marketing'
-            || guessNum == 'OK is there any recent report from them on multichannel marketing' || guessNum == 'is there any recent report from them on multichannel marketing'
-            || guessNum == 'is there any recent report from them on omnichannel marketing' || guessNum == 'is there any latest report from them on multichannel marketing'
-            || guessNum == 'is there any latest report from them on omnichannel marketing')
-            
-            speech =  'The most recent report is the MQ from April 2017. Would you like the report summary?';
-        
-        else if (guessNum == 'yes, please' || guessNum == 'ok proceed' || guessNum == 'sure proceed' || guessNum == 'ok sure' || guessNum == 'ok sure proceed' || guessNum == 'okay proceed'
-            || guessNum == 'go ahead' || guessNum == 'please brief me' || guessNum == 'brief me please' || guessNum == 'yes please') 
-              speech =  "Ok, here it is. Marketing leaders will find a host of new vendors in this year''s Magic Quadrant for multichannel campaign management. Vendors are focused on integrating machine learning, personalization and ad tech capabilities into big data foundations for deeper customer engagement.";
-        
-        else if (guessNum == 'Can you email the report to me' || guessNum == 'Please report to me' || guessNum == 'please report to me' || guessNum == 'Sounds interesting Can you email the report to me' 
-            || guessNum == 'could you please send an email report to me' || guessNum == 'can you please send an email report to me' || guessNum == 'send me the email report'
-            || guessNum == 'sounds interesting can you email the report to me'){
-            request('http://resulticks.biz:81/Home/SendReport?id=gg', { json: true }, (err, res, body) => {});
-            speech = 'Sure, report has been emailed.';
-          }
-           
-          else if (guessNum == 'Great, can you also schedule a meeting with Michael Lehman or Max Russell next week' || guessNum == 'great can you also schedule a meeting with Michael Lehman or Max Russell next week'
-             || guessNum == 'great can you also schedule a meeting with Michael Lehman or Max Russell next week' || guessNum == 'great can you also schedule a meeting with michael lehman or max russell next week'
-             || guessNum == 'great can you also schedule a meeting with Michael lehman or Max russell next week' || guessNum == 'great can you also schedule a meeting with Michael Lehman or max Russell next week' 
-			 || guessNum == 'great can you also schedule a meeting with michael or max next week' || guessNum == 'great can you also schedule a meeting with Michael or max next week' 
-			 || guessNum == 'great can you also schedule a meeting with Michael or Russell next week' || guessNum == 'great can you also schedule a meeting with michael or russell next week' 
-			 || guessNum == 'great schedule a meeting with russell next week') {
-          
-            speech = 'Ok, I have matched your schedules. Best time slots available are next Wednesday 10am or next Friday 4pm with Max Russell. Michael Lehman is not available week after next. Do you want to book an appointment?';
-       }
-            else if (guessNum == "OK request a meeting" || guessNum == "request a meeting" || guessNum == "request a meeting with Max Russell" || guessNum == "OK request a meeting with Max Russell" || guessNum == "OK request a meeting with Max Russell for Wednesday 10 AM please" || guessNum == "OK request a meeting with Max Russell for wednesday at ten in the morning"
-            || guessNum == "OK request a meeting with Max Russell for Wednesday at ten in the morning" || guessNum == "OK request a meeting with Max Russell for Wednesday morning 10 o'clock please" || guessNum == "OK request a meeting with Max Russell for wednesday please" || guessNum == "OK request a meeting with Max Russell for Wednesday 10 am please"
-            || guessNum == "OK request a meeting with Max Russell for Wednesday 10 in the morning please" || guessNum == "OK request a meeting with Max Russell for Wednesday ten AM please" || guessNum == 'OK schedule a meeting with Max Russell'
-            || guessNum == "OK request a meeting with Max Russell for Wednesday ten am please" || guessNum == 'OK schedule it with Max Russell for wednesday please' || guessNum == 'OK schedule it with Max Russell for Wednesday please' || guessNum == "OK schedule a meeting with max Russell for Wednesday 10 AM please" || guessNum == "OK schedule a meeting with max Russell for Wednesday 10 am please"
-            || guessNum == "OK schedule a meeting with max Russell for wednesday 10 am please" || guessNum == 'okay schedule a meeting with max Russell' || guessNum == 'schedule a meeting with Max Russell' || guessNum == 'schedule a meeting with max Russell')
-        {
-            request('http://resulticks.biz:81/Home/SendInvite?id=gg', { json: true }, (err, res, body) => {});
-            speech ='Meeting request has been sent.';
-           }
-        else if(guessNum == 'thanks' || guessNum == 'thank you')
-          speech ='Good bye';
-          else
-          speech = "I cant understand that, please repeat";
-        
-        
+  else if (guessNum == 'thanks')
+    speech = 'Good bye';
+  else
+    speech = "I cant understand that, please repeat";
 
-return res.json({
-speech: speech,
-displayText: speech,
-source: "webhook-echo-sample"
-});
-});
-
-
-
-restService.post("/echo", function(req, res) {
-
-      var factCategory = req.body.result &&
-      req.body.result.parameters &&
-      req.body.result.parameters.echoText
-        ? req.body.result.parameters.echoText
-        : "Seems like some problem. Speak again.";
-    
-      var speech =factCategory.toLowerCase();
-    
-      
-    
-      if (factCategory == 'hot day' || factCategory == 'hot today' || factCategory == 'hot' || factCategory == 'today was hot' || factCategory == 'it was a hot day'
-      || factCategory == 'it was so hot today' || factCategory == 'it was hot today' || factCategory == 'it was a hot day today'
-      || factCategory == 'it was a hard day' || factCategory == 'it was so hard today' || factCategory == 'it was hard today' || factCategory == 'it was a hard day today'
-      || factCategory == 'hard day' || factCategory == 'hard today' || factCategory == 'hard' || factCategory == 'today was hard')
-      {
-    
-        speech='Yes indeed. Todays temperature reached a record high of 62.6 degrees outdoors, The temperature in this room is 59.59 degrees. Would you like me to adjust the airconditioning?';
-    
-      }
-    else if (factCategory == 'aircon'
-      || factCategory == 'swicth on the'
-      || factCategory == 'switch on the aircon' || factCategory == 'turn on' || factCategory == 'switch it on please'
-      || factCategory == 'switch it on' || factCategory == 'turn it on' || factCategory == 'turn it on please'
-      || factCategory == 'yes, switch it on' || factCategory == 'switch on'
-      || factCategory == 'switch on the aircon')
-    {
-        speech='I have set the temperature to 72 degree. Do you want to change that?';
-      
-    }
-    else if (factCategory == 'no leave it' || factCategory == 'no let it be' || factCategory == 'no need' || factCategory == 'do not change it'
-      || factCategory == 'no thats just right' || factCategory == 'no thats right' || factCategory == "no that�s just right")
-    {
-      speech='Its time to replace your air conditioner filter. Vision H.V.A.C.has a 20 percent discount on filters for the next two weeks. Would you like to place an order now?';
-      
-    }
-    else if (factCategory == 'will it be hot next month' || factCategory == 'how hot is it next month' || factCategory == 'is it hot next month too' || factCategory == 'will it stay hot very long'
-      || factCategory == 'will it be hard next month' || factCategory == 'how hard is it next month' || factCategory == 'is it hard next month too' || factCategory == 'is it hot next month to'
-      || factCategory == 'is it hard next month to')
-    {
-      speech='Yes, I checked.The heat wave will continue through next month, would you like to order the replacement filters?';
-      
-    }
-    else if (factCategory == 'yes order it' || factCategory == 'yes order it please' || factCategory == 'please proceed' || factCategory == 'ok proceed'
-      || factCategory == 'ok sure proceed' || factCategory == 'sure proceed' || factCategory == 'yes please' || factCategory == 'order it please') {
-        speech='Ok. I have placed the order. Please check for the details on your email and mobile app to complete payment. ';
-      
-    }
-    else if(factCategory == 'thanks' || factCategory == 'ok thanks' || factCategory == 'quit' || factCategory == 'thank you')
-    {
-      
-      request('http://resulticks.biz:81/Home/Register?id=125gh', { json: true }, (err, res, body) => {
-        if (err) { return console.log(err); }
-        console.log(body.url);
-        console.log(body.explanation);
-      });
-      
-      speech='Good bye!';
-    
-    }
-    
   return res.json({
     speech: speech,
     displayText: speech,
@@ -202,7 +45,120 @@ restService.post("/echo", function(req, res) {
   });
 });
 
-restService.post("/audio", function(req, res) {
+
+
+
+
+
+
+
+restService.post("/gartner", function (req, res) {
+
+  var guessNum = req.body.result &&
+    req.body.result.parameters &&
+    req.body.result.parameters.echoText
+    ? req.body.result.parameters.echoText
+    : "Seems like some problem. Speak again.";
+
+  var speech = guessNum.toLowerCase();
+
+  if (guessNum == 'welcome')
+    speech = 'OK. Multichannel marketing is being covered by Michael Lehmann and Max Russell.';
+  else if (guessNum == 'report')
+    speech = 'The most recent report is the MQ from April 2017. Would you like the report summary?';
+  else if (guessNum == 'readreport')
+    speech = "Ok, here it is. Marketing leaders will find a host of new vendors in this year''s Magic Quadrant for multichannel campaign management. Vendors are focused on integrating machine learning, personalization and ad tech capabilities into big data foundations for deeper customer engagement.";
+  else if (guessNum == 'sendemail') {
+    request('http://resulticks.biz:81/Home/SendReport?id=gg', { json: true }, (err, res, body) => { });
+    speech = 'Sure, report has been emailed.';
+  }
+  else if (guessNum == 'schedule')
+    speech = 'Ok, I have matched your schedules. Best time slots available are next Wednesday 10am or next Friday 4pm with Max Russell. Michael Lehman is not available week after next. Do you want to book an appointment?';
+  else if (guessNum == 'meeting') {
+    request('http://resulticks.biz:81/Home/SendInvite?id=gg', { json: true }, (err, res, body) => { });
+    speech = 'Meeting request has been sent.';
+  }
+  else if (guessNum == 'thanks')
+    speech = 'Good bye';
+  else
+    speech = "I cant understand that, please repeat";
+
+
+
+  return res.json({
+    speech: speech,
+    displayText: speech,
+    source: "webhook-echo-sample"
+  });
+});
+
+
+
+restService.post("/echo", function (req, res) {
+
+  var factCategory = req.body.result &&
+    req.body.result.parameters &&
+    req.body.result.parameters.echoText
+    ? req.body.result.parameters.echoText
+    : "Seems like some problem. Speak again.";
+
+  var speech = factCategory.toLowerCase();
+
+
+
+  if (factCategory == 'hot day' || factCategory == 'hot today' || factCategory == 'hot' || factCategory == 'today was hot' || factCategory == 'it was a hot day'
+    || factCategory == 'it was so hot today' || factCategory == 'it was hot today' || factCategory == 'it was a hot day today'
+    || factCategory == 'it was a hard day' || factCategory == 'it was so hard today' || factCategory == 'it was hard today' || factCategory == 'it was a hard day today'
+    || factCategory == 'hard day' || factCategory == 'hard today' || factCategory == 'hard' || factCategory == 'today was hard') {
+
+    speech = 'Yes indeed. Todays temperature reached a record high of 62.6 degrees outdoors, The temperature in this room is 59.59 degrees. Would you like me to adjust the airconditioning?';
+
+  }
+  else if (factCategory == 'aircon'
+    || factCategory == 'swicth on the'
+    || factCategory == 'switch on the aircon' || factCategory == 'turn on' || factCategory == 'switch it on please'
+    || factCategory == 'switch it on' || factCategory == 'turn it on' || factCategory == 'turn it on please'
+    || factCategory == 'yes, switch it on' || factCategory == 'switch on'
+    || factCategory == 'switch on the aircon') {
+    speech = 'I have set the temperature to 72 degree. Do you want to change that?';
+
+  }
+  else if (factCategory == 'no leave it' || factCategory == 'no let it be' || factCategory == 'no need' || factCategory == 'do not change it'
+    || factCategory == 'no thats just right' || factCategory == 'no thats right' || factCategory == "no that�s just right") {
+    speech = 'Its time to replace your air conditioner filter. Vision H.V.A.C.has a 20 percent discount on filters for the next two weeks. Would you like to place an order now?';
+
+  }
+  else if (factCategory == 'will it be hot next month' || factCategory == 'how hot is it next month' || factCategory == 'is it hot next month too' || factCategory == 'will it stay hot very long'
+    || factCategory == 'will it be hard next month' || factCategory == 'how hard is it next month' || factCategory == 'is it hard next month too' || factCategory == 'is it hot next month to'
+    || factCategory == 'is it hard next month to') {
+    speech = 'Yes, I checked.The heat wave will continue through next month, would you like to order the replacement filters?';
+
+  }
+  else if (factCategory == 'yes order it' || factCategory == 'yes order it please' || factCategory == 'please proceed' || factCategory == 'ok proceed'
+    || factCategory == 'ok sure proceed' || factCategory == 'sure proceed' || factCategory == 'yes please' || factCategory == 'order it please') {
+    speech = 'Ok. I have placed the order. Please check for the details on your email and mobile app to complete payment. ';
+
+  }
+  else if (factCategory == 'thanks' || factCategory == 'ok thanks' || factCategory == 'quit' || factCategory == 'thank you') {
+
+    request('http://resulticks.biz:81/Home/Register?id=125gh', { json: true }, (err, res, body) => {
+      if (err) { return console.log(err); }
+      console.log(body.url);
+      console.log(body.explanation);
+    });
+
+    speech = 'Good bye!';
+
+  }
+
+  return res.json({
+    speech: speech,
+    displayText: speech,
+    source: "webhook-echo-sample"
+  });
+});
+
+restService.post("/audio", function (req, res) {
   var speech = "";
   switch (req.body.result.parameters.AudioSample.toLowerCase()) {
     //Speech Synthesis Markup Language 
@@ -295,7 +251,7 @@ restService.post("/audio", function(req, res) {
   });
 });
 
-restService.post("/video", function(req, res) {
+restService.post("/video", function (req, res) {
   return res.json({
     speech:
       '<speak>  <audio src="https://www.youtube.com/watch?v=VX7SSnvpj-8">did not get your MP3 audio file</audio></speak>',
@@ -305,7 +261,7 @@ restService.post("/video", function(req, res) {
   });
 });
 
-restService.post("/slack-test", function(req, res) {
+restService.post("/slack-test", function (req, res) {
   var slack_message = {
     text: "Details of JIRA board for Browse and Commerce",
     attachments: [
@@ -370,6 +326,6 @@ restService.post("/slack-test", function(req, res) {
   });
 });
 
-restService.listen(process.env.PORT || 8000, function() {
+restService.listen(process.env.PORT || 8000, function () {
   console.log("Server up and listening");
 });
