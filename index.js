@@ -16,7 +16,7 @@ restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
 
-  https.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', (resp) => {
+  https.get('http://resulticks.biz:81/Home/Register?id=125gh', (resp) => {
   let data = '';
  
   // A chunk of data has been recieved.
