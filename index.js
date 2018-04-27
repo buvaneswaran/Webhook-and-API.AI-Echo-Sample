@@ -69,11 +69,6 @@ else if (factCategory == 'yes order it' || factCategory == 'yes order it please'
 }
 else if(factCategory == 'thanks' || factCategory == 'ok thanks' || factCategory == 'quit' || factCategory == 'thank you')
 {
-
-
-  getWeather("");
-  
-
   speech='Good bye!';
 
 }
