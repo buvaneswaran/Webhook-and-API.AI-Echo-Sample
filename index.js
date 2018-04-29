@@ -60,7 +60,7 @@ restService.post("/gartner", function (req, res) {
     ? req.body.result.parameters.echoText
     : "Seems like some problem. Speak again.";
 
-  var speech = guessNum.toLowerCase();
+//  var speech = guessNum.toLowerCase();
 
   if (guessNum == 'welcome')
     speech = 'OK. Multichannel marketing is being covered by Michael Lehmann and Max Russell.';
