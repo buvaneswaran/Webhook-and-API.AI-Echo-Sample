@@ -33,13 +33,6 @@ restService.post("/schedule", function (req, res) {
   });
 });
 
-
-
-
-
-
-
-
 restService.post("/gartner", function (req, res) {
 
   var guessNum = req.body.result &&
@@ -70,10 +63,7 @@ restService.post("/echo", function (req, res) {
     ? req.body.result.parameters.echoText
     : "Seems like some problem. Speak again.";
 
-  var speech = factCategory.toLowerCase();
-
-
-
+  var speech = factCategory;
   if (factCategory == 'hot day' || factCategory == 'hot today' || factCategory == 'hot' || factCategory == 'today was hot' || factCategory == 'it was a hot day'
     || factCategory == 'it was so hot today' || factCategory == 'it was hot today' || factCategory == 'it was a hot day today'
     || factCategory == 'it was a hard day' || factCategory == 'it was so hard today' || factCategory == 'it was hard today' || factCategory == 'it was a hard day today'
