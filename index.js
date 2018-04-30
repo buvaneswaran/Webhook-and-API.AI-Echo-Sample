@@ -48,7 +48,7 @@ restService.post("/gartner", function (req, res) {
     ? req.body.result.parameters.echoText
     : "Seems like some problem. Speak again.";
 
-  var speech = guessNum.toLowerCase();
+//  var speech = guessNum.toLowerCase();
 
   
 
