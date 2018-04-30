@@ -25,19 +25,7 @@ restService.post("/schedule", function (req, res) {
 
   var speech = guessNum.toLowerCase();
 
-  if (guessNum == 'welcome')
-    speech = 'you have a free schedule this evening.';
-  else if (guessNum == 'offer')
-    speech = 'OK. Your Infinia creditcard entitles you to a 1+1 offer at Vision Kitchen in Phoenix Mall. Shall I connect you to the concierge to make a booking? ';
-  else if (guessNum == 'connect') {
-    speech = 'Ok, connecting now.';
-    request('http://resulticks.biz:81/Home/RegisterBank?id=hare_ram_end', { json: true }, (err, res, body) => { });
-  }
-  else if (guessNum == 'thanks')
-    speech = 'Good bye';
-  else
-    speech = "I cant understand that, please repeat";
-
+ 
   return res.json({
     speech: speech,
     displayText: speech,
@@ -62,27 +50,7 @@ restService.post("/gartner", function (req, res) {
 
   var speech = guessNum.toLowerCase();
 
-  if (guessNum == 'welcome')
-    speech = 'OK. Multichannel marketing is being covered by Michael Lehmann and Max Russell.';
-  else if (guessNum == 'report')
-    speech = 'The most recent report is the MQ from April 2017. Would you like the report summary?';
-  else if (guessNum == 'readreport')
-    speech = "Ok, here it is. Marketing leaders will find a host of new vendors in this year''s Magic Quadrant for multichannel campaign management. Vendors are focused on integrating machine learning, personalization and ad tech capabilities into big data foundations for deeper customer engagement.";
-  else if (guessNum == 'sendemail') {
-    request('http://resulticks.biz:81/Home/SendReport?id=gg', { json: true }, (err, res, body) => { });
-    speech = 'Sure, report has been emailed.';
-  }
-  else if (guessNum == 'schedule')
-    speech = 'Ok, I have matched your schedules. Best time slots available are next Wednesday 10am or next Friday 4pm with Max Russell. Michael Lehman is not available week after next. Do you want to book an appointment?';
-  else if (guessNum == 'meeting') {
-    request('http://resulticks.biz:81/Home/SendInvite?id=gg', { json: true }, (err, res, body) => { });
-    speech = 'Meeting request has been sent.';
-  }
-  else if (guessNum == 'thanks')
-    speech = 'Good bye';
-  else
-    speech = "I cant understand that, please repeat";
-
+  
 
 
   return res.json({
