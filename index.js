@@ -55,7 +55,7 @@ restService.post("/gartner", function (req, res) {
   : "Seems like some problem. Speak again.";
 
    var speech = guessNum;
-   guessNum=guessNum.toLowerCase;
+  
 
   if (guessNum == 'welcome')
   speech = 'OK. Multichannel marketing is being covered by Michael Lehmann and Max Russell.';
