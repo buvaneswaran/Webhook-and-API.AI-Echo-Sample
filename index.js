@@ -47,41 +47,41 @@ restService.post("/schedule", function (req, res) {
 
 restService.post("/gartner", function (req, res) {
 
-  
-  var guessNum = req.body.result &&
-  req.body.result.parameters &&
-  req.body.result.parameters.echoText
-  ? req.body.result.parameters.echoText
-  : "Seems like some problem. Speak again.";
 
-   var speech = guessNum;
-  
+  var guessNum = req.body.result &&
+    req.body.result.parameters &&
+    req.body.result.parameters.echoText
+    ? req.body.result.parameters.echoText
+    : "Seems like some problem. Speak again.";
+
+  var speech = guessNum;
+
 
   if (guessNum == 'welcome')
-  speech = 'OK. Multichannel marketing is being covered by Michael Lehmann and Max Russell.';
-else if (guessNum == 'report')
-  speech = 'The most recent report is the MQ from April 2017. Would you like the report summary?';
-else if (guessNum == 'readreport')
-  speech = "Ok, here it is. Marketing leaders will find a host of new vendors in this year''s Magic Quadrant for multichannel campaign management. Vendors are focused on integrating machine learning, personalization and ad tech capabilities into big data foundations for deeper customer engagement.";
-else if (guessNum == 'sendemail') {
-  request('http://resulticks.biz:81/Home/SendReport?id=gg', { json: true }, (err, res, body) => { });
-  speech = 'Sure, report has been emailed.';
-}
-else if (guessNum == 'schedule')
-  speech = 'Ok, I have matched your schedules. Best time slots available are next Wednesday 10am or next Friday 4pm with Max Russell. Michael Lehman is not available week after next. Do you want to book an appointment?';
-else if (guessNum == 'meeting') {
-  request('http://resulticks.biz:81/Home/SendInvite?id=gg', { json: true }, (err, res, body) => { });
-  speech = 'Meeting request has been sent.';
-}
-else if (guessNum == 'thanks')
-  speech = 'Good bye';
-else
-  speech = "I cant understand that, please repeat";
+    speech = 'OK. Multichannel marketing is being covered by Michael Lehmann and Max Russell.';
+  else if (guessNum == 'report')
+    speech = 'The most recent report is the MQ from April 2017. Would you like the report summary?';
+  else if (guessNum == 'readreport')
+    speech = "Ok, here it is. Marketing leaders will find a host of new vendors in this year''s Magic Quadrant for multichannel campaign management. Vendors are focused on integrating machine learning, personalization and ad tech capabilities into big data foundations for deeper customer engagement.";
+  else if (guessNum == 'sendemail') {
+    request('http://resulticks.biz:81/Home/SendReport?id=gg', { json: true }, (err, res, body) => { });
+    speech = 'Sure, report has been emailed.';
+  }
+  else if (guessNum == 'schedule')
+    speech = 'Ok, I have matched your schedules. Best time slots available are next Wednesday 10am or next Friday 4pm with Max Russell. Michael Lehman is not available week after next. Do you want to book an appointment?';
+  else if (guessNum == 'meeting') {
+    request('http://resulticks.biz:81/Home/SendInvite?id=gg', { json: true }, (err, res, body) => { });
+    speech = 'Meeting request has been sent.';
+  }
+  else if (guessNum == 'thanks')
+    speech = 'Good bye';
+  else
+    speech = "I cant understand that, please repeat";
+
+  var type = 0;
 
 
- 
 
-  
 
 
   return res.json({
@@ -102,57 +102,54 @@ restService.post("/echo", function (req, res) {
     : "Seems like some problem. Speak again.";
 
   var speech = factCategory.toLowerCase();
-  if (factCategory == 'hot day' || factCategory == 'hot today' || factCategory == 'hot' || factCategory == 'today was hot' || factCategory == 'it was a hot day'
-    || factCategory == 'it was so hot today' || factCategory == 'it was hot today' || factCategory == 'it was a hot day today'
-    || factCategory == 'it was a hard day' || factCategory == 'it was so hard today' || factCategory == 'it was hard today' || factCategory == 'it was a hard day today'
-    || factCategory == 'hard day' || factCategory == 'hard today' || factCategory == 'hard' || factCategory == 'today was hard') {
 
-    speech = 'Yes indeed. Todays temperature reached a record high of 62.6 degrees outdoors, The temperature in this room is 59.59 degrees. Would you like me to adjust the airconditioning?';
-
+  if (guessNum == 'campaign1') {
+    //can you check if this weekends thanksgiving campaign has been triggered on resulticks
+    type = 0;
+    speech = 'Yes, campaign triggered at 12pm on Wednesday, It is open till 30th January 2018. The performance reportis available. Would you like to read it?';
+  } else if (guessNum == 'campaign2') {
+    type = 1;
+    speech ='Yes, campaign ended on December 30th at 5pm. The performance report has been updated and is available. Would you like to read it?';
+  } else if (guessNum == 'read') {
+    if (type == 0)
+    speech ='Current status is Warming Up. Primary target is 10% achieved. Average reach rate is 43%. Average engagement rate is 1.5%. Average conversion rate is 0.05%. Would you like to read the recommendations';
+    else
+    speech ='Status is Achieved. Primary target achieved is 120%. Average reach rate is 36%. Average engagement rate is 9%. Average conversion rate is 3%. Would you like to read the recommendations?';
+  } else if (guessNum == 'read') {
+    if (type == 0)
+    speech = 'Ok, here it is. The engagement rate has been low in comparison to the goal set. The campaign was blasted at 12pm Wednesday. But best practices indicate Friday evening to be best time for this campaign type.';
+    else
+    speech ='Ok, here it is. The engagement rate has been low in comparison to the goal set. The campaign was blasted at 12pm Friday. But best practices indicate Thursday evening to be best time for this campaign type. Since the engagement rate was not achieved but the performance is better than industry standards we recommend making indicated changes during next campaign for better performance.';
+  } else if (guessNum == 'report') {
+    if (type == 0) {
+      request('http://resulticks.biz:81/Home/SendResulticksReport?camtype=camp_1', { json: true }, (err, res, body) => {
+        if (err) { return console.log(err); }
+       
+      });
+      speech = 'Sure, report has been emailed.';
+    } else {
+      request('http://resulticks.biz:81/Home/SendResulticksReport?camtype=camp_2', { json: true }, (err, res, body) => {
+        if (err) { return console.log(err); }
+      
+      });
+      speech = 'Sure, report has been emailed.';
+    }
   }
-  else if (factCategory == 'aircon'
-    || factCategory == 'swicth on the'
-    || factCategory == 'switch on the aircon' || factCategory == 'turn on' || factCategory == 'switch it on please'
-    || factCategory == 'switch it on' || factCategory == 'turn it on' || factCategory == 'turn it on please'
-    || factCategory == 'yes, switch it on' || factCategory == 'switch on'
-    || factCategory == 'switch on the aircon') {
-    speech = 'I have set the temperature to 72 degree. Do you want to change that?';
 
-  }
-  else if (factCategory == 'no leave it' || factCategory == 'no let it be' || factCategory == 'no need' || factCategory == 'do not change it'
-    || factCategory == 'no thats just right' || factCategory == 'no thats right' || factCategory == "no that�s just right") {
-    speech = 'Its time to replace your air conditioner filter. Vision H.V.A.C.has a 20 percent discount on filters for the next two weeks. Would you like to place an order now?';
+  else if (factCategory == 'thanks' ) {
 
-  }
-  else if (factCategory == 'will it be hot next month' || factCategory == 'how hot is it next month' || factCategory == 'is it hot next month too' || factCategory == 'will it stay hot very long'
-    || factCategory == 'will it be hard next month' || factCategory == 'how hard is it next month' || factCategory == 'is it hard next month too' || factCategory == 'is it hot next month to'
-    || factCategory == 'is it hard next month to') {
-    speech = 'Yes, I checked.The heat wave will continue through next month, would you like to order the replacement filters?';
+      speech = 'Good bye!';
 
-  }
-  else if (factCategory == 'yes order it' || factCategory == 'yes order it please' || factCategory == 'please proceed' || factCategory == 'ok proceed'
-    || factCategory == 'ok sure proceed' || factCategory == 'sure proceed' || factCategory == 'yes please' || factCategory == 'order it please') {
-    speech = 'Ok. I have placed the order. Please check for the details on your email and mobile app to complete payment. ';
+    }else {
+      speech = 'I cant understand that, please repeat';
+    }
 
-  }
-  else if (factCategory == 'thanks' || factCategory == 'ok thanks' || factCategory == 'quit' || factCategory == 'thank you') {
-
-    request('http://resulticks.biz:81/Home/Register?id=125gh', { json: true }, (err, res, body) => {
-      if (err) { return console.log(err); }
-      console.log(body.url);
-      console.log(body.explanation);
+    return res.json({
+      speech: speech,
+      displayText: speech,
+      source: "webhook-echo-sample"
     });
-
-    speech = 'Good bye!';
-
-  }
-
-  return res.json({
-    speech: speech,
-    displayText: speech,
-    source: "webhook-echo-sample"
   });
-});
 
 restService.post("/audio", function (req, res) {
   var speech = "";
