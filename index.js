@@ -107,10 +107,10 @@ restService.post("/echo", function (req, res) {
 
   if (guessNum == 'campaign1') {
     //can you check if this weekends thanksgiving campaign has been triggered on resulticks
-    type = 0;
+    //type = 0;
     speech = 'Yes, campaign triggered at 12pm on Wednesday, It is open till 30th January 2018. The performance reportis available. Would you like to read it?';
   } else if (guessNum == 'campaign2') {
-    type = 1;
+    //type = 1;
     speech ='Yes, campaign ended on December 30th at 5pm. The performance report has been updated and is available. Would you like to read it?';
   } else if (guessNum == 'read') {
     if (type == 0)
