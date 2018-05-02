@@ -115,7 +115,7 @@ restService.post("/echo", function (req, res) {
     speech ='Current status is Warming Up. Primary target is 10% achieved. Average reach rate is 43%. Average engagement rate is 1.5%. Average conversion rate is 0.05%. Would you like to read the recommendations';
     else
     speech ='Status is Achieved. Primary target achieved is 120%. Average reach rate is 36%. Average engagement rate is 9%. Average conversion rate is 3%. Would you like to read the recommendations?';
-  } else if (guessNum == 'read') {
+  } else if (guessNum == 'recommentations') {
     if (type == 0)
     speech = 'Ok, here it is. The engagement rate has been low in comparison to the goal set. The campaign was blasted at 12pm Wednesday. But best practices indicate Friday evening to be best time for this campaign type.';
     else
