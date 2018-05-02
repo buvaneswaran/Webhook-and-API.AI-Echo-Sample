@@ -136,7 +136,7 @@ restService.post("/echo", function (req, res) {
       });
       speech = 'Sure, report has been emailed.';
     }
-  } else if (factCategory == 'thanks') {
+  } else if (guessNum == 'thanks') {
       speech = 'Good bye!';
     }else {
       speech = 'I cant understand that, please repeat';
