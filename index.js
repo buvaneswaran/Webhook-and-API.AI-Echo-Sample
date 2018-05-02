@@ -95,14 +95,14 @@ restService.post("/gartner", function (req, res) {
 
 restService.post("/echo", function (req, res) {
 
-  var factCategory = req.body.result &&
+  var guessNum = req.body.result &&
     req.body.result.parameters &&
     req.body.result.parameters.echoText
     ? req.body.result.parameters.echoText
     : "Seems like some problem. Speak again.";
 
-   var guessNum = factCategory;
-  var speech = factCategory.toLowerCase();
+   
+    var speech = guessNum.toLowerCase();
   
 
   if (guessNum == 'campaign1') {
@@ -136,16 +136,11 @@ restService.post("/echo", function (req, res) {
       });
       speech = 'Sure, report has been emailed.';
     }
-  }
-
-  else if (factCategory == 'thanks' ) {
-
+  } else if (factCategory == 'thanks') {
       speech = 'Good bye!';
-
     }else {
       speech = 'I cant understand that, please repeat';
     }
-
     return res.json({
       speech: speech,
       displayText: speech,
