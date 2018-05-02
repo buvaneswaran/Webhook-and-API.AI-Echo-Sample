@@ -101,7 +101,9 @@ restService.post("/echo", function (req, res) {
     ? req.body.result.parameters.echoText
     : "Seems like some problem. Speak again.";
 
+   var guessNum = factCategory;
   var speech = factCategory.toLowerCase();
+  
 
   if (guessNum == 'campaign1') {
     //can you check if this weekends thanksgiving campaign has been triggered on resulticks
