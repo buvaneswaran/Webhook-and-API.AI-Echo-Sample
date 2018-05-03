@@ -141,7 +141,7 @@ restService.post("/echo", function (req, res) {
     }else if (guessNum == 'kidsintro') {
       speech = '<speak>Welcome to kids world <audio src="https://s3.amazonaws.com/storyaudiofiles/intro.mp3"/> Powered by Resulticks </speak>';
     }else if (guessNum == 'chapter1') {
-      speech = '<speak> Hey we are going to learn alphats <audio src="https://s3.amazonaws.com/storyaudiofiles/Alphapts.mp3"/> We try one more <audio src="https://s3.amazonaws.com/storyaudiofiles/alphabetsong.mp3"> Wow its really nice</speak>';
+      speech = '<speak> Hey we are going to learn alphats <audio src="https://s3.amazonaws.com/storyaudiofiles/Alphapts.mp3"/> We try one more <audio src="https://s3.amazonaws.com/storyaudiofiles/alphabetsong.mp3"/> Wow its really nice</speak>';
     }else if (guessNum == 'chapter2') {
       speech = '<speak> Hey we are going to listen rhymes <audio src="https://s3.amazonaws.com/storyaudiofiles/twikle.mp3"/> Wow its really nice</speak>';
     }else if (guessNum == 'chapter2') {
