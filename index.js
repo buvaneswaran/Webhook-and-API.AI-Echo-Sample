@@ -26,8 +26,7 @@ restService.post("/schedule", function (req, res) {
   var speech = guessNum.toLowerCase();
 
   if (guessNum == 'welcome')
-    //speech = 'you have a free schedule this evening.';
-    speech ='<speak><audio src="https://s3.amazonaws.com/storyaudiofiles/alphabetsong.mp3"/>did not get your audio file</speak>';
+    speech = 'you have a free schedule this evening.';
   else if (guessNum == 'offer')
     speech = 'OK. Your Infinia creditcard entitles you to a 1+1 offer at Vision Kitchen in Phoenix Mall. Shall I connect you to the concierge to make a booking? ';
   else if (guessNum == 'connect') {
@@ -139,7 +138,15 @@ restService.post("/echo", function (req, res) {
     }
   } else if (guessNum == 'thanks') {
       speech = 'Good bye!';
-    }else {
+    }else if (guessNum == 'kids') {
+      speech = '<speak>Welcome to kids world <audio src="https://s3.amazonaws.com/storyaudiofiles/intro.mp3"> Powered by Resulticks';
+    }else if (guessNum == 'chapter1') {
+      speech = '<speak> Hey we are going to learn alphats <audio src="https://s3.amazonaws.com/storyaudiofiles/Alphapts.mp3"> We try one more <audio src="https://s3.amazonaws.com/storyaudiofiles/alphabetsong.mp3"> Wow its really nice';
+    }else if (guessNum == 'chapter2') {
+      speech = '<speak> Hey we are going to listen rhymes <audio src="https://s3.amazonaws.com/storyaudiofiles/twikle.mp3"> Wow its really nice';
+    }else if (guessNum == 'chapter2') {
+      speech = '<speak> Hey we are going to listen rhymes <audio src="https://s3.amazonaws.com/storyaudiofiles/twikle.mp3"> Wow its really nice';
+    } else {
       speech = 'I cant understand that, please repeat';
     }
     return res.json({
