@@ -26,7 +26,8 @@ restService.post("/schedule", function (req, res) {
   var speech = guessNum.toLowerCase();
 
   if (guessNum == 'welcome')
-    speech = 'you have a free schedule this evening.';
+    //speech = 'you have a free schedule this evening.';
+    speech ='<speak><audio src="https://actions.google.com/sounds/v1/cartoon/slide_whistle.ogg">did not get your audio file</audio></speak>';
   else if (guessNum == 'offer')
     speech = 'OK. Your Infinia creditcard entitles you to a 1+1 offer at Vision Kitchen in Phoenix Mall. Shall I connect you to the concierge to make a booking? ';
   else if (guessNum == 'connect') {
