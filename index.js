@@ -142,13 +142,18 @@ restService.post("/echo", function (req, res) {
   } else if (guessNum == 'thanks') {
   speech = 'Good bye!';
     }else if (guessNum == 'chapter1') {
+      currentposition=0;
       speech = '<speak> Alphabet <audio src="https://s3.amazonaws.com/storyaudiofiles/alphabetsong.mp3"/> Do you want continue? </speak>';
+    
     }else if (guessNum == 'chapter2') {
+      currentposition=1;
       speech = '<speak> Dancing Rainbow Colors <audio src="https://s3.amazonaws.com/storyaudiofiles/dancingcolors.mp3"/> Do you want continue?</speak>';
     }else if (guessNum == 'chapter3') {
+      currentposition=2;
       speech = '<speak> Five Little Snowmen <audio src="https://s3.amazonaws.com/storyaudiofiles/fivelittle.mp3"/> Do you want continue?</speak>';
     }else if (guessNum == 'chapter4') {
-      speech = '<speak> Twinkle, Twinkle Little Star <audio src="https://s3.amazonaws.com/storyaudiofiles/twinklenew.mp3"/> Do you want continue?</speak>';
+      currentposition=3;
+      speech = '<speak> Twinkle, Twinkle Little Star <audio src="https://s3.amazonaws.com/storyaudiofiles/twinklenew.mp3"/></speak>';
     }else if (guessNum == 'continue') {
        
        
