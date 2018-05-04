@@ -93,6 +93,9 @@ restService.post("/gartner", function (req, res) {
 
 
 var type = 0;
+
+var currentposition=0;
+
 restService.post("/echo", function (req, res) {
 
   var guessNum = req.body.result &&
@@ -137,15 +140,32 @@ restService.post("/echo", function (req, res) {
       speech = 'Sure, report has been emailed.';
     }
   } else if (guessNum == 'thanks') {
-      speech = 'Good bye!';
-    }else if (guessNum == 'kidsintro') {
-      speech = '<speak>Welcome to kids world <audio src="https://s3.amazonaws.com/storyaudiofiles/intro.mp3"/> Powered by Resulticks </speak>';
+  speech = 'Good bye!';
     }else if (guessNum == 'chapter1') {
-      speech = '<speak> Hey we are going to learn alphats <audio src="https://s3.amazonaws.com/storyaudiofiles/Alphapts.mp3"/> We try one more <audio src="https://s3.amazonaws.com/storyaudiofiles/alphabetsong.mp3"/> Wow its really nice</speak>';
+      speech = '<speak> Alphabet <audio src="https://s3.amazonaws.com/storyaudiofiles/alphabetsong.mp3"/> Do you want continue? </speak>';
     }else if (guessNum == 'chapter2') {
-      speech = '<speak> Hey we are going to listen rhymes <audio src="https://s3.amazonaws.com/storyaudiofiles/twikle.mp3"/> Wow its really nice</speak>';
-    }else if (guessNum == 'chapter2') {
-      speech = '<speak> Hey we are going to listen rhymes <audio src="https://s3.amazonaws.com/storyaudiofiles/twikle.mp3"/> Wow its really nice</speak>';
+      speech = '<speak> Dancing Rainbow Colors <audio src="https://s3.amazonaws.com/storyaudiofiles/dancingcolors.mp3"/> Do you want continue?</speak>';
+    }else if (guessNum == 'chapter3') {
+      speech = '<speak> Five Little Snowmen <audio src="https://s3.amazonaws.com/storyaudiofiles/fivelittle.mp3"/> Do you want continue?</speak>';
+    }else if (guessNum == 'chapter4') {
+      speech = '<speak> Twinkle, Twinkle Little Star <audio src="https://s3.amazonaws.com/storyaudiofiles/twinklenew.mp3"/> Do you want continue?</speak>';
+    }else if (guessNum == 'continue') {
+      currentposition = currentposition++;
+    switch(currentposition) {
+  case 1:
+  speech = '<speak> Dancing Rainbow Colors <audio src="https://s3.amazonaws.com/storyaudiofiles/dancingcolors.mp3"/> Do you want continue? </speak>';
+  break;
+  case 2:
+  speech = '<speak> Five Little Snowmen <audio src="https://s3.amazonaws.com/storyaudiofiles/fivelittle.mp3"/> Do you want continue? </speak>';
+  break;
+  case 3:
+  speech = '<speak> Twinkle, Twinkle Little Star <audio src="https://s3.amazonaws.com/storyaudiofiles/twinklenew.mp3"/>  </speak>';
+  break;
+  default:
+  speech = '<speak> <audio src="https://s3.amazonaws.com/storyaudiofiles/intro.mp3"/> Do you want continue?</speak>';
+  break;
+
+       }
     } else {
       speech = 'I cant understand that, please repeat';
     }
