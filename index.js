@@ -160,16 +160,16 @@ restService.post("/echo", function (req, res) {
        if(currentposition ==0)
        {
         currentposition=1;
-       speech = '<speak> Dancing Rainbow Colors <audio src="https://s3.amazonaws.com/storyaudiofiles/dancingcolors.mp3"/> Do you want continue? </speak>';
+        speech = '<speak> Move your page  Dancing Rainbow Colors <audio src="https://s3.amazonaws.com/storyaudiofiles/dancingcolors.mp3"/> Do you want continue? </speak>';
        }
       else if(currentposition == 1)
       {
         currentposition=2;
-        speech = '<speak> Five Little Snowmen <audio src="https://s3.amazonaws.com/storyaudiofiles/fivelittle.mp3"/> Do you want continue? </speak>';
+        speech = '<speak> Move your page Five Little Snowmen <audio src="https://s3.amazonaws.com/storyaudiofiles/fivelittle.mp3"/> Do you want continue? </speak>';
       }else if(currentposition == 2)
       {
         currentposition=3;
-        speech = '<speak> Twinkle, Twinkle Little Star <audio src="https://s3.amazonaws.com/storyaudiofiles/twinklenew.mp3"/>  </speak>';
+        speech = '<speak>  Move your page Twinkle, Twinkle Little Star <audio src="https://s3.amazonaws.com/storyaudiofiles/twinklenew.mp3"/>  </speak>';
       }else{
         speech = 'I cant understand that, please repeat';
       }
