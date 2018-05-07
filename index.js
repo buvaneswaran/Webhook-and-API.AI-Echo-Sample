@@ -160,7 +160,7 @@ restService.post("/echo", function (req, res) {
       speech = '<speak> Move your page Five Little Snowmen <audio src="https://s3.amazonaws.com/storyaudiofiles/fivelittle.mp3"/> Hey! Buddy time is '+formatted+ ' This is right time to sleep Do you want to continue? </speak>';
     }else if (guessNum == 'chapter4') {
       currentposition=3;
-      speech = '<speak> Move your page Twinkle, Twinkle Little Star <audio src="https://s3.amazonaws.com/storyaudiofiles/twinklenew.mp3"/>The Lession is Thanks for listening </speak>';
+      speech = '<speak> Move your page Twinkle, Twinkle Little Star <audio src="https://s3.amazonaws.com/storyaudiofiles/twinklenew.mp3"/>The Lession is end. Thanks for listening </speak>';
     }else if (guessNum == 'continue') {
        
        
