@@ -12,7 +12,7 @@ const restService = express();
 //var formatted = dt.format('H:M');
 //console.log(formatted);
 
-var formatted = "10 O Clock";
+var formatted = "10 O'Clock";
 
 restService.use(
   bodyParser.urlencoded({
@@ -157,7 +157,7 @@ restService.post("/echo", function (req, res) {
       speech = '<speak> Dancing Rainbow Colors <audio src="https://s3.amazonaws.com/storyaudiofiles/dancingcolors.mp3"/> Do you want continue?</speak>';
     }else if (guessNum == 'chapter3') {
       currentposition=2;
-      speech = '<speak> Move your page Five Little Snowmen <audio src="https://s3.amazonaws.com/storyaudiofiles/fivelittle.mp3"/> Hey! Buddy time is '+formatted+ ' This is right time to sleep Do you want continue? </speak>';
+      speech = '<speak> Move your page Five Little Snowmen <audio src="https://s3.amazonaws.com/storyaudiofiles/fivelittle.mp3"/> Hey! Buddy time is '+formatted+ ' This is right time to sleep Do you want to continue? </speak>';
     }else if (guessNum == 'chapter4') {
       currentposition=3;
       speech = '<speak> Twinkle, Twinkle Little Star <audio src="https://s3.amazonaws.com/storyaudiofiles/twinklenew.mp3"/></speak>';
@@ -172,7 +172,7 @@ restService.post("/echo", function (req, res) {
       else if(currentposition == 1)
       {
         currentposition=2;
-        speech = '<speak> Move your page Five Little Snowmen <audio src="https://s3.amazonaws.com/storyaudiofiles/fivelittle.mp3"/> Hey! Buddy time is '+formatted+ ' This is right time to sleep Do you want continue? </speak>';
+        speech = '<speak> Move your page Five Little Snowmen <audio src="https://s3.amazonaws.com/storyaudiofiles/fivelittle.mp3"/> Hey! Buddy time is '+formatted+ ' This is right time to sleep, Do you want to continue? </speak>';
       }else if(currentposition == 2)
       {
         currentposition=3;
