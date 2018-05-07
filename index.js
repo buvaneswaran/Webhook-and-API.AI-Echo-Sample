@@ -7,10 +7,12 @@ const request = require('request');
 const restService = express();
 
 
-var dateTime = require('node-datetime');
-var dt = dateTime.create();
-var formatted = dt.format('H:M');
-console.log(formatted);
+//var dateTime = require('node-datetime');
+//var dt = dateTime.create();
+//var formatted = dt.format('H:M');
+//console.log(formatted);
+
+var formatted = "10 O Clock";
 
 restService.use(
   bodyParser.urlencoded({
@@ -41,7 +43,7 @@ restService.post("/schedule", function (req, res) {
   else if (guessNum == 'thanks')
     speech = 'Good bye';
   else
-    speech = "I cant understand that, please repeat";
+    speech = "Sorry, Please come again!";
 
   return res.json({
     speech: speech,
@@ -81,7 +83,7 @@ restService.post("/gartner", function (req, res) {
   else if (guessNum == 'thanks')
     speech = 'Good bye';
   else
-    speech = "I cant understand that, please repeat";
+    speech = "Sorry, Please come again!";
 
  
 
@@ -155,7 +157,7 @@ restService.post("/echo", function (req, res) {
       speech = '<speak> Dancing Rainbow Colors <audio src="https://s3.amazonaws.com/storyaudiofiles/dancingcolors.mp3"/> Do you want continue?</speak>';
     }else if (guessNum == 'chapter3') {
       currentposition=2;
-      speech = '<speak> Five Little Snowmen <audio src="https://s3.amazonaws.com/storyaudiofiles/fivelittle.mp3"/> Do you want continue?</speak>';
+      speech = '<speak> Move your page Five Little Snowmen <audio src="https://s3.amazonaws.com/storyaudiofiles/fivelittle.mp3"/> Hey! Buddy time is '+formatted+ ' This is right time to sleep Do you want continue? </speak>';
     }else if (guessNum == 'chapter4') {
       currentposition=3;
       speech = '<speak> Twinkle, Twinkle Little Star <audio src="https://s3.amazonaws.com/storyaudiofiles/twinklenew.mp3"/></speak>';
@@ -176,13 +178,13 @@ restService.post("/echo", function (req, res) {
         currentposition=3;
         speech = '<speak>  Move your page Twinkle, Twinkle Little Star <audio src="https://s3.amazonaws.com/storyaudiofiles/twinklenew.mp3"/> The Lession is Thanks for listening </speak>';
       }else{
-        speech = 'I cant understand that, please repeat';
+        speech = 'Sorry, Please come again!';
       }
 
     
        
     } else {
-      speech = 'I cant understand that, please repeat';
+      speech = 'Sorry, Please come again!';
     }
     return res.json({
       speech: speech,
