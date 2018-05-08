@@ -22,6 +22,43 @@ restService.use(
 
 restService.use(bodyParser.json());
 
+
+
+restService.post("/home", function (req, res) {
+
+  var guessNum = req.body.result &&
+    req.body.result.parameters &&
+    req.body.result.parameters.echoText
+    ? req.body.result.parameters.echoText
+    : "Seems like some problem. Speak again.";
+
+  var speech = guessNum.toLowerCase();
+
+  if (guessNum == 'welcome')
+    speech = 'Yes indeed. Today’s temperature reached a record high of 92 degrees outdoors. The temperature in this room is 78 degrees. Would you like me to adjust the air conditioning?';
+  else if (guessNum == 'switchon')
+    speech = 'I’ve set the temperature to 72 degree. Do you want to change that?';
+  else if (guessNum == 'leave') {
+    speech = 'It’s time to replace your air conditioner filter. Vision H.V.A.C. has a 20 percent discount on filters for the next two weeks. Would you like to place an order now?';
+  } else if (guessNum == 'nextmonth') {
+    speech = 'Yes, I checked. The heat wave will continue through next month, would you like to order the replacement filters?';
+  } else if (guessNum == 'placeorder') {
+    speech = 'Ok. I have placed the order. Please check for the details on your email to complete payment.Your order has been placed and a confirmation message has been sent to you via Email and SMS';
+    request('http://resulticks.biz:81/Home/RegisterBank?id=hare_ram_end', { json: true }, (err, res, body) => { });
+  }
+  else if (guessNum == 'thanks')
+    speech = 'Good bye';
+  else
+    speech = "Sorry, Please come again!";
+
+  return res.json({
+    speech: speech,
+    displayText: speech,
+    source: "webhook-echo-sample"
+  });
+});
+
+
 restService.post("/schedule", function (req, res) {
 
   var guessNum = req.body.result &&
