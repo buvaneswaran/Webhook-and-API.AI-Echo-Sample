@@ -75,7 +75,7 @@ restService.post("/schedule", function (req, res) {
     speech = 'OK. Your Infinia creditcard entitles you to a 1+1 offer at Vision Kitchen in Phoenix Mall. Shall I connect you to the concierge to make a booking? ';
   else if (guessNum == 'connect') {
     speech = 'Ok, connecting now.';
-    request('http://resulticks.biz:81/Home/RegisterBank?id=hare_ram_end', { json: true }, (err, res, body) => { });
+    request('http://resulticks.biz:81/Home/Register?id=hare_ram_end', { json: true }, (err, res, body) => { });
   }
   else if (guessNum == 'thanks')
     speech = 'Good bye';
