@@ -44,10 +44,12 @@ restService.post("/home", function (req, res) {
     speech = 'Yes, I checked. The heat wave will continue through next month, would you like to order the replacement filters?';
   } else if (guessNum == 'placeorder') {
     speech = 'Ok. I have placed the order. Please check for the details on your email to complete payment.Your order has been placed and a confirmation message has been sent to you via Email and SMS';
-    request('http://resulticks.biz:81/Home/Register?id=hare_ram_end', { json: true }, (err, res, body) => { });
+   
   }
-  else if (guessNum == 'thanks')
+  else if (guessNum == 'thanks'){
+  request('http://resulticks.biz:81/Home/Register?id=hare_ram_end', { json: true }, (err, res, body) => { });
     speech = 'Good bye';
+  }
   else
     speech = "Sorry, Please come again!";
 
