@@ -74,7 +74,7 @@ restService.post("/schedule", function (req, res) {
   if (guessNum == 'welcome')
     speech = 'you have a free schedule this evening.';
   else if (guessNum == 'offer')
-    speech = 'OK. Your Infinia creditcard entitles you to a 1+1 offer at Vision Kitchen in Phoenix Mall. Shall I connect you to the restaurants to make a booking? ';
+    speech = 'OK. Your Infinia creditcard entitles you to a 1+1 offer at Vision Kitchen in Phoenix Mall. Shall I connect you to the vision restaurants to make a booking? ';
   else if (guessNum == 'connect') {
     speech = 'Ok, connecting now.';
     request('http://resulticks.biz:81/Home/RegisterBank?id=hare_ram_end', { json: true }, (err, res, body) => { });
