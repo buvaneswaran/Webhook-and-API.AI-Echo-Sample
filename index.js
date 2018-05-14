@@ -7,10 +7,6 @@ const request = require('request');
 const restService = express();
 
 
-//var dateTime = require('node-datetime');
-//var dt = dateTime.create();
-//var formatted = dt.format('H:M');
-//console.log(formatted);
 
 var formatted = "10 O'Clock";
 
@@ -74,7 +70,7 @@ restService.post("/schedule", function (req, res) {
   if (guessNum == 'welcome')
     speech = 'you have a free schedule this evening.';
   else if (guessNum == 'offer')
-    speech = 'OK. Your Infinia creditcard entitles you to a 1+1 offer at Vision Kitchen in Phoenix Mall. Shall I connect you to the restaurants to make a booking? ';
+    speech = 'OK. Your Infinia creditcard entitles you to a 1+1 offer at Vision Kitchen in Phoenix Mall. Shall I connect you to the vision restaurants to make a booking? ';
   else if (guessNum == 'connect') {
     speech = 'Ok, connecting now.';
     request('http://resulticks.biz:81/Home/RegisterBank?id=hare_ram_end', { json: true }, (err, res, body) => { });
@@ -157,10 +153,10 @@ restService.post("/echo", function (req, res) {
   if (guessNum == 'campaign1') {
     //can you check if this weekends thanksgiving campaign has been triggered on resulticks
     type = 0;
-    speech = 'Yes, campaign triggered at 12pm on Wednesday, It is open till 30th January 2018. The performance reportis available. Would you like to read it?';
+    speech = 'Yes, campaign triggered at 12pm on Wednesday, It is open till 30th April 2018. The performance reportis available. Would you like to read it?';
   } else if (guessNum == 'campaign2') {
     type = 1;
-    speech ='Yes, campaign ended on December 30th at 5pm. The performance report has been updated and is available. Would you like to read it?';
+    speech ='Yes, campaign ended on April 22nd at 5pm. The performance report has been updated and is available. Would you like to read it?';
   } else if (guessNum == 'read') {
     if (type == 0)
     speech ='Current status is Warming Up. Primary target is 10% achieved. Average reach rate is 43%. Average engagement rate is 1.5%. Average conversion rate is 0.05%. Would you like to read the recommendations';
