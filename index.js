@@ -160,7 +160,7 @@ restService.post("/echo", function (req, res) {
     speech = 'Yes, campaign triggered at 12pm on Wednesday, It is open till 30th April 2018. The performance reportis available. Would you like to read it?';
   } else if (guessNum == 'campaign2') {
     type = 1;
-    speech ='Yes, campaign ended on December 30th at 5pm. The performance report has been updated and is available. Would you like to read it?';
+    speech ='Yes, campaign ended on April 22nd at 5pm. The performance report has been updated and is available. Would you like to read it?';
   } else if (guessNum == 'read') {
     if (type == 0)
     speech ='Current status is Warming Up. Primary target is 10% achieved. Average reach rate is 43%. Average engagement rate is 1.5%. Average conversion rate is 0.05%. Would you like to read the recommendations';
