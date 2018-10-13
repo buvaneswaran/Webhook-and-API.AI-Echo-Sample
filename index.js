@@ -29,52 +29,50 @@ restService.use(bodyParser.json());
 
 restService.post("/sendmail", function (req, res) {
 
-    let fromAdd = "int.rsivakumar@gmail.com";
-    let toAdd = "buvanesh.special@gmail.com"
-    var htmlAdd = fs.readFileSync("mailedm.html","utf-8");
-
-    console.log(fromAdd);
-    console.log(toAdd);
-    console.log(htmlAdd);
 
 
-    var speech="Welcome";
-    var transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: fromValue,
-        pass: 'siva1234'
-      }
-      });
-      
-      var mailOptions = {
-      from: fromValue,
-      to: toValue,
-      subject: 'Vision Market - Order Confirmation',
-      html: htmlValue
-      };
-      
-      transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.log(error);
-        speech=error;
-      } else {
-        console.log('Email sent: ' + info.response);
-        speech=info.response;
-      }
-      });
 
-   // sendMail(fromAdd, toAdd, htmlAdd);
+    let fromValue = "int.rsivakumar@gmail.com";
+    let toValue = "buvanesh.special@gmail.com"
+    var htmlValue = fs.readFileSync("mailedm.html","utf-8");
 
 
-  
+    
+
+
+  var speech ='welcome';
+
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: fromValue,
+      pass: 'siva1234'
+    }
+    });
+    
+    var mailOptions = {
+    from: fromValue,
+    to: toValue,
+    subject: 'Vision Market - Order Confirmation',
+    html: htmlValue
+    };
+    
+    transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+      speech = error;
+    } else {
+      console.log('Email sent: ' + info.response);
+      speech = info.response;
+    }
+    });
 
  
 
   return res.json({
-    speech: toAdd,
-    displayText: htmlAdd,
-    source: speech
+    speech: speech,
+    displayText: htmlValue,
+    source: toValue
   });
 });
 
