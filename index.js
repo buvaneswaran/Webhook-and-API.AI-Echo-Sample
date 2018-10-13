@@ -18,6 +18,23 @@ restService.use(
 
 restService.use(bodyParser.json());
 
+restService.post("/sendmail", function (req, res) {
+
+ 
+
+  var speech;
+
+ 
+    speech = "Sorry, Please come again!";
+
+  return res.json({
+    speech: speech,
+    displayText: speech,
+    source: "webhook-echo-sample"
+  });
+});
+
+
 
 
 restService.post("/home", function (req, res) {
