@@ -1,10 +1,40 @@
 "use strict";
 
+const nodemailer = require('nodemailer');
+const fs = require('file-system');
 const express = require("express");
 const bodyParser = require("body-parser");
 const https = require('https');
 const request = require('request');
 const restService = express();
+
+
+
+function sendMail(fromValue, toValue, htmlValue) {
+
+  var transporter = nodemailer.createTransport({
+service: 'gmail',
+auth: {
+  user: fromValue,
+  pass: 'siva1234'
+}
+});
+
+var mailOptions = {
+from: fromValue,
+to: toValue,
+subject: 'Vision Market - Order Confirmation',
+html: htmlValue
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+if (error) {
+  console.log(error);
+} else {
+  console.log('Email sent: ' + info.response);
+}
+});
+}
 
 
 
@@ -20,7 +50,16 @@ restService.use(bodyParser.json());
 
 restService.post("/sendmail", function (req, res) {
 
- 
+    let fromAdd = "int.rsivakumar@gmail.com";
+    let toAdd = "buvanesh.special@gmail.com"
+    var htmlAdd = fs.readFileSync("mailedm.html","utf-8");
+
+    console.log(fromAdd);
+    console.log(toAdd);
+    console.log(htmlAdd);
+
+    sendMail(fromAdd, toAdd, htmlAdd);
+
 
   var speech;
 
