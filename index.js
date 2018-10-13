@@ -38,7 +38,7 @@ restService.post("/sendmail", function (req, res) {
     console.log(htmlAdd);
 
 
-    var speech;
+    var speech="Welcome";
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
