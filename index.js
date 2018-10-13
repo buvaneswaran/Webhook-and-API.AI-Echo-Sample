@@ -67,9 +67,9 @@ restService.post("/sendmail", function (req, res) {
     speech = "Sorry, Please come again!";
 
   return res.json({
-    speech: speech,
-    displayText: speech,
-    source: "webhook-echo-sample"
+    speech: toAdd,
+    displayText: htmlAdd,
+    source: fromAdd
   });
 });
 
