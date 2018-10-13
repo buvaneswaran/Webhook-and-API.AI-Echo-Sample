@@ -12,28 +12,7 @@ const restService = express();
 
 function sendMail(fromValue, toValue, htmlValue) {
 
-  var transporter = nodemailer.createTransport({
-service: 'gmail',
-auth: {
-  user: fromValue,
-  pass: 'siva1234'
-}
-});
 
-var mailOptions = {
-from: fromValue,
-to: toValue,
-subject: 'Vision Market - Order Confirmation',
-html: htmlValue
-};
-
-transporter.sendMail(mailOptions, function(error, info){
-if (error) {
-  console.log(error);
-} else {
-  console.log('Email sent: ' + info.response);
-}
-});
 }
 
 
@@ -58,18 +37,44 @@ restService.post("/sendmail", function (req, res) {
     console.log(toAdd);
     console.log(htmlAdd);
 
-    sendMail(fromAdd, toAdd, htmlAdd);
+
+    var speech;
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: fromValue,
+        pass: 'siva1234'
+      }
+      });
+      
+      var mailOptions = {
+      from: fromValue,
+      to: toValue,
+      subject: 'Vision Market - Order Confirmation',
+      html: htmlValue
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+        speech=error;
+      } else {
+        console.log('Email sent: ' + info.response);
+        speech=info.response;
+      }
+      });
+
+   // sendMail(fromAdd, toAdd, htmlAdd);
 
 
-  var speech;
+  
 
  
-    speech = "Sorry, Please come again!";
 
   return res.json({
     speech: toAdd,
     displayText: htmlAdd,
-    source: fromAdd
+    source: speech
   });
 });
 
