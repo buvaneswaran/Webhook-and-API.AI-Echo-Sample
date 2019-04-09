@@ -162,11 +162,11 @@ restService.post("/gartner", function (req, res) {
 
 
   if (guessNum == 'welcome')
-    speech = 'OK. Multichannel marketing is being covered by Michael Lehmann and Max Russell.';
+    speech = 'OK. Digital Marketing Hub is being covered by Michael Lehmann and Max Russell.';
   else if (guessNum == 'report')
     speech = 'The most recent report is the MQ from April 2018. Would you like the report summary?';
   else if (guessNum == 'readreport')
-    speech = "Ok, here it is. Marketing leaders will find a host of new vendors in this year''s Magic Quadrant for multichannel campaign management. Vendors are focused on integrating machine learning, personalization and ad tech capabilities into big data foundations for deeper customer engagement.";
+    speech = "Ok, here it is – Marketing leaders will find a host of new vendors in this year's Magic Quadrant for Digital Marketing Hub campaign management. Vendors are focused on integrating machine learning, personalization and ad tech capabilities into big data foundations for deeper customer engagement.";
   else if (guessNum == 'sendemail') {
     request('http://resulticks.biz:81/Home/SendReport?id=gg', { json: true }, (err, res, body) => { });
     speech = 'Sure, report has been emailed.';
