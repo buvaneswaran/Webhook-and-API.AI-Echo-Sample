@@ -162,7 +162,7 @@ restService.post("/gartner", function (req, res) {
 
 
   if (guessNum == 'welcome')
-    speech = 'OK. Digital Marketing Hub is being covered by Michael Lehmann and Max Russell.';
+    speech = 'OK. Digital Marketing Hub is being covered by Adam Sarner and Andrew Frank.';
   else if (guessNum == 'report')
     speech = 'The most recent report is the MQ from April 2018. Would you like the report summary?';
   else if (guessNum == 'readreport')
@@ -172,7 +172,7 @@ restService.post("/gartner", function (req, res) {
     speech = 'Sure, report has been emailed.';
   }
   else if (guessNum == 'schedule')
-    speech = 'Ok, I have matched your schedules. Best time slots available are next Wednesday 10am or next Friday 4pm with Max Russell. Michael Lehman is not available the week after next. Do you want to book an appointment?';
+    speech = 'Ok, I have matched your schedules. Best time slots available are next Wednesday 10am or next Friday 4pm with Andrew Frank Adam Sarner is not available the week after next. Do you want to book an appointment?';
   else if (guessNum == 'meeting') {
     request('http://resulticks.biz:81/Home/SendInvite?id=gg', { json: true }, (err, res, body) => { });
     speech = 'Meeting request has been sent.';
